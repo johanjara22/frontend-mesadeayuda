@@ -1,0 +1,55 @@
+<div class="container my-5  mx-auto">
+  <div class="card login my-5 columna mx-auto" >
+  <div class="card-header titulo ">{{ titulo }}</div>
+  <div class="card-body">
+    
+      <div class="row ">
+        <div class="col-md-6 my-5 mx-auto">
+          <img
+            src="../../assets/img/call-center.png"
+            width="70%"
+            height="100%"
+          />
+        </div>
+        <div class="col-md-6 my-5">
+          <div class="formulario ">
+          <form (ngSubmit)="login()" >
+            <div class="form-group row">
+              <div class="col">
+                <input
+                  placeholder="Correo"
+                  type="email"
+                  class="form-control my-2 input"
+                  [(ngModel)]="cliente.email"
+                  name="email"
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col">
+                <input
+                  placeholder="Contraseña"
+                  type="password"
+                  class="form-control my-2 input"
+                  [(ngModel)]="cliente.contrasena"
+                  name="contrasena"
+                />
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-8 offset-md-3 my-4">
+                <button class="btn btn-primary boton" role="button">
+                  Iniciar Sesión
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

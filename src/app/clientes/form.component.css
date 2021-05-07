@@ -1,0 +1,39 @@
+.login{
+    width: 100%;
+    height: 200%;
+    opacity: 0.8;
+    margin-top: 100px !important;
+   
+}
+
+.titulo
+{
+    background-color: #02112B !important;
+   color:#CAB44F;
+}
+
+.input
+{
+    width: 100%;
+}
+
+.boton{
+    width: 70%;
+}
+
+.card-body
+{
+    padding: 0% !important;
+    width: 80% !important;
+}
+
+.formulario
+{
+    border: 2px;
+    border-style: dotted;
+
+}
+.columna
+{
+    width: 60% !important;
+}
