@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule} from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
@@ -10,7 +10,10 @@ import {FormsModule}  from '@angular/forms'
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
-import { TicketsComponent } from './perfil-cliente/tickets/tickets.component'
+import { TicketsComponent } from './ticket/tickets.component';
+
+
+  
 
 const routes : Routes=[
   {path: '',redirectTo:'./', pathMatch: 'full'},
@@ -28,17 +31,18 @@ const routes : Routes=[
     ClientesComponent,
     FormComponent,
     PerfilClienteComponent,
-    TicketsComponent
+    TicketsComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    FooterComponent,
-    HeaderComponent,
-    FormsModule,
+     FormsModule,
+    
     RouterModule.forRoot(routes)
 
   ],
+ 
   providers: [],
   bootstrap: [AppComponent]
 })
