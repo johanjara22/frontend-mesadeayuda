@@ -12,12 +12,19 @@ import {HttpClientModule} from '@angular/common/http';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
 import { TicketsComponent } from './ticket/tickets.component';
 
-
+//social login
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from 'angularx-social-login';
+import { HomeComponent } from './home/home.component';
   
 
 const routes : Routes=[
-  {path: '',redirectTo:'./', pathMatch: 'full'},
-  {path: 'clientes/form', component: FormComponent},
+  {path: '',redirectTo:'/home', pathMatch: 'full'},
+  {path: 'login', component: FormComponent},
+  {path: 'home', component: HomeComponent},
   {path: 'clientes/tickets', component: TicketsComponent},
   {path: 'perfilCliente', component: PerfilClienteComponent}
 ]
@@ -32,18 +39,34 @@ const routes : Routes=[
     FormComponent,
     PerfilClienteComponent,
     TicketsComponent,
+    HomeComponent,
     
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
      FormsModule,
-    
+    SocialLoginModule,
     RouterModule.forRoot(routes)
 
   ],
  
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '17285614506-v0lfve6o3kjoi1fiolfc7ltmsgaithqi.apps.googleusercontent.com'
+            )
+          },
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

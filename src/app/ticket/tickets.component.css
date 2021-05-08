@@ -1,0 +1,19 @@
+#mis_tickets {
+    background-color: white;
+    height: 100%;
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .carta
+  {
+      padding-top: 3em;
+  }
+
+  .carta_header{
+
+    background-color: #02112B;
+    color:#CAB44F ;
+    
+    
+  }

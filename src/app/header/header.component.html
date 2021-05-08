@@ -4,17 +4,44 @@
         <img src="../../assets/img/logo.png"  class="logo">
       <a class="navbar-brand titulo_header" href="#">Mesa de Ayuda | Portal Cliente</a>
     </div>
+  </div>
 
-      <li class="nav-item dropdown d-flex justify-content-end colapse_header">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Jorge luis lloreda Chicuazuque
-        </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+  
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+              <i class="fas fa-home"></i>Inicio</a>
+        
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <i fas fa-list> 
+
+              </i>Lista</a>
+          </li>
+          <button *ngIf="!isLogged" class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="/login">
+            <i class="fas fa-sign-in-alt fa-lg"></i> Iniciar Sesión
+           </button>
+          <button  *ngIf="isLogged" class="btn btn-outline-danger my-2 my-sm-0" type="submit" (click)="logOut()">
+            <i class="fas fa-sign-out-alt fa-lg"></i>Cerrar Sesión
+           </button>
           
-          <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
-         
         </ul>
-      </li>
+        <ul class="navbar-nav mrl-auto" *ngIf="isLogged">
+          <li class="nav-item disable">
+            <a class="nav-link" >
+              <i fas fa-list> 
+
+              </i>{{userLogged.name}}</a>
+          </li>
+        </ul>
+        <img *ngIf="isLogged" src="{{userLogged.photoUrl}}" class="rounded-circle mr-3" style="width: 50px;">
+
+      </div>
     
-    </div>
+  
+    
+    
   </nav>

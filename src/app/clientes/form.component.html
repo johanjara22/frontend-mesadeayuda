@@ -1,5 +1,7 @@
-<div class="container my-5  mx-auto">
-  <div class="card login my-5 columna mx-auto" >
+
+
+<div class="container my-5  mx-auto"  *ngIf="!isLogged">
+  <div class="card login columna mx-auto" >
   <div class="card-header titulo ">{{ titulo }}</div>
   <div class="card-body">
     
@@ -11,45 +13,20 @@
             height="100%"
           />
         </div>
+        
         <div class="col-md-6 my-5">
-          <div class="formulario ">
-          <form (ngSubmit)="login()" >
-            <div class="form-group row">
-              <div class="col">
-                <input
-                  placeholder="Correo"
-                  type="email"
-                  class="form-control my-2 input"
-                  [(ngModel)]="cliente.email"
-                  name="email"
-                />
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col">
-                <input
-                  placeholder="Contraseña"
-                  type="password"
-                  class="form-control my-2 input"
-                  [(ngModel)]="cliente.contrasena"
-                  name="contrasena"
-                />
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <div class="col-md-8 offset-md-3 my-4">
-                <button class="btn btn-primary boton" role="button">
-                  Iniciar Sesión
+         <div class="card">
+          <div class="card-header "></div>
+           <div class="card-body"> 
+                <button class="btn btn-outline-danger btn-lg" (click)="signInWithGoogle()">
+                  <i class="fab fa-google">Iniciar Sesión</i>
                 </button>
-              </div>
-            </div>
-          </form>
-        </div>
+           </div>
+
+         </div>
         </div>
       </div>
+      
     </div>
   </div>
 </div>
-<app-footer></app-footer>
