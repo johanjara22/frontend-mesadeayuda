@@ -22,6 +22,7 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
+import { TicketTecnicoComponent } from './ticket-tecnico/ticket-tecnico/ticket-tecnico.component';
 
 const routes : Routes=[
   {path: '',redirectTo:'/home', pathMatch: 'full'},
@@ -42,6 +43,7 @@ const routes : Routes=[
     PerfilClienteComponent,
     TicketsComponent,
     HomeComponent,
+    TicketTecnicoComponent,
     
   ],
   imports: [
