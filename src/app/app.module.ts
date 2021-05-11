@@ -10,7 +10,11 @@ import {FormsModule}  from '@angular/forms'
 import {RouterModule, Routes} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
-import { TicketsComponent } from './ticket/tickets.component';
+import { TicketsComponent } from './ticket-cliente/tickets.component';
+
+import { HomeComponent } from './home/home.component';
+
+
 
 //social login
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
@@ -18,8 +22,6 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
-import { HomeComponent } from './home/home.component';
-  
 
 const routes : Routes=[
   {path: '',redirectTo:'/home', pathMatch: 'full'},
@@ -60,7 +62,7 @@ const routes : Routes=[
           {
             id: GoogleLoginProvider.PROVIDER_ID,
             provider: new GoogleLoginProvider(
-              '17285614506-v0lfve6o3kjoi1fiolfc7ltmsgaithqi.apps.googleusercontent.com'
+              '933118792446-tkaho95f4005vrst4jkisbdgspjjkg05.apps.googleusercontent.com'
             )
           },
         ]
