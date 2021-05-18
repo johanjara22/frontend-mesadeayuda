@@ -1,18 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule} from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeaderComponent } from './header/header.component';
-import { ClientesComponent } from './clientes/clientes.component';
-import { FormComponent } from './clientes/form.component';
-import {FormsModule}  from '@angular/forms'
-import {RouterModule, Routes} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
-import { PerfilClienteComponent } from './perfil-cliente/perfil-cliente.component';
-import { TicketsComponent } from './ticket-cliente/tickets.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
 
-import { HomeComponent } from './home/home.component';
+
+import { FormsModule } from '@angular/forms'
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { PerfilClienteComponent } from './components/perfil-cliente/perfil-cliente.component';
+import { TicketsComponent } from './components/ticket-cliente/tickets.component';
+
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -22,14 +22,17 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
-import { TicketTecnicoComponent } from './ticket-tecnico/ticket-tecnico/ticket-tecnico.component';
+import { TicketTecnicoComponent } from './components/ticket-tecnico/ticket-tecnico.component';
+import { PerfilTecnicoComponent } from './components/perfil-tecnico/perfil-tecnico.component';
 
-const routes : Routes=[
-  {path: '',redirectTo:'/home', pathMatch: 'full'},
-  {path: 'login', component: FormComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'clientes/tickets', component: TicketsComponent},
-  {path: 'perfilCliente', component: PerfilClienteComponent}
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+
+  { path: 'home', component: HomeComponent },
+  { path: 'clientes/tickets', component: TicketsComponent },
+  { path: 'perfilTecnico', component: PerfilTecnicoComponent },
+  { path: 'tickets/especialista', component: TicketTecnicoComponent },
+  { path: 'perfilCliente', component: PerfilClienteComponent }
 ]
 
 
@@ -38,28 +41,27 @@ const routes : Routes=[
     AppComponent,
     FooterComponent,
     HeaderComponent,
-    ClientesComponent,
-    FormComponent,
     PerfilClienteComponent,
     TicketsComponent,
     HomeComponent,
     TicketTecnicoComponent,
-    
+    PerfilTecnicoComponent,
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-     FormsModule,
+    FormsModule,
     SocialLoginModule,
     RouterModule.forRoot(routes)
 
   ],
- 
+
   providers: [
     {
       provide: 'SocialAuthServiceConfig',
       useValue: {
-        autoLogin: false,
+        autoLogin: true,
         providers: [
           {
             id: GoogleLoginProvider.PROVIDER_ID,

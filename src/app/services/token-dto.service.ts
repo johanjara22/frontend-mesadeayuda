@@ -11,15 +11,15 @@ export class TokenDtoService {
   constructor() { }
 
   public getToken():string{
-    return sessionStorage.getItem(TOKEN_KEY);
+    return localStorage.getItem(TOKEN_KEY);
   }
 
   public setToken(token:string):void{
-    sessionStorage.removeItem(TOKEN_KEY);
-    sessionStorage.setItem(TOKEN_KEY,token);
+    localStorage.removeItem(TOKEN_KEY);
+    localStorage.setItem(TOKEN_KEY,token);
   }
 
   logOut():void{
-    sessionStorage.clear();
+    localStorage.clear();
   }
 }
