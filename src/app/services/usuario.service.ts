@@ -10,6 +10,9 @@ const cabecera={headers: new HttpHeaders({'Content-Type':'application/json'})};
   providedIn: 'root'
 })
 export class UsuarioService {
+
+ usuario:Usuario= new Usuario();
+ id_usuario:number;
   private urlEndPonit: string = 'http://localhost:8888/oauth/';
 
   private httpHeader = new HttpHeaders({'Content-Type':'application/json'});
@@ -24,7 +27,8 @@ export class UsuarioService {
   getCliente(email: string):Observable<Usuario>{
    
     return this.http.get<Usuario>(`${this.urlEndPonit}cliente/${email}`,{headers:this.httpHeader});
-
-      
+          
   }
+
+ 
 }

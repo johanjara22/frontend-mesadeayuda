@@ -8,12 +8,14 @@ import { TokenDtoService } from '../../services/token-dto.service';
 import { TokenDto } from '../../models/token-dto';
 import { Usuario } from '../../models/Usuario';
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  
   public usuario: Usuario = new Usuario();
   public titulo: string = 'Iniciar Sesión';
     
@@ -71,6 +73,9 @@ export class HeaderComponent implements OnInit {
             this.usuarioService.getCliente(this.socialUsers.email).subscribe(
               (resp) => {
                 this.usuario = resp;
+                this.usuarioService.id_usuario=this.usuario.id;
+                console.log(this.usuario.id);
+                
               
                 alert(this.usuario.cargo+this.usuario.email);
                 if (this.usuario.cargo == 'Estudiante') {

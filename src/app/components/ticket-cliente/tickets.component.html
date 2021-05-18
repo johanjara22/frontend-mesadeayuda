@@ -5,15 +5,16 @@
     <div class="row">
       <div class="col-sm-4 carta">
         <div class="card">
-          <div class="card-header carta_header">Ticket#1</div>
+          <div class="card-header carta_header">Ticket#</div>
           <div class="card-body">
             <div class="row">
               <div class="col">
-                <table class="table table-striped">
+                <table class="table table-striped" *ngFor="let tickets of ticket">
+                 
                         <tbody>
-                            <tr>
+                            <tr > 
                                 <td>#Ticket</td>
-                                <td>#Ticket</td>
+                                <td>{{tickets.idTicket}}</td>
                             </tr>
 
                            

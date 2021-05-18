@@ -11,6 +11,8 @@ const cabecera={headers: new HttpHeaders({'Content-Type':'application/json'})};
 })
 export class OauthService {
 
+
+
   oauthURL='http://localhost:8888/oauth/';
 
   constructor(private httpClient: HttpClient) { }
@@ -18,6 +20,7 @@ export class OauthService {
       return this.httpClient.post<TokenDto>(this.oauthURL+'google',tokenDto,cabecera);
     }
 
+    
 
    
 
