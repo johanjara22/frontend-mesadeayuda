@@ -21,9 +21,9 @@ export class TicketService{
  
   }
   //    /ticket/{id_ticket}
-  getTicket(id_ticket:number){
+  getTicket(id_ticket:string){
 
-    return this.http.get(`${this.urlEndPonit2}ticket/${id_ticket}`,{headers:this.httpHeader2});
+    return this.http.get(`${this.urlEndPonit2}buscar/${id_ticket}`,{headers:this.httpHeader2});
 
   }
 

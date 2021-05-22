@@ -8,7 +8,7 @@ import { Ticket } from 'src/app/models/ticket';
 })
 export class DetallesTicketComponent implements OnInit {
   @Input() numTicketActivo:string;
-  @Input() ticketActivo:Ticket = new Ticket();
+  @Input() ticket:Ticket = new Ticket();
   
   
   constructor() { }

@@ -14,8 +14,9 @@ import { LocalService } from '../../../services/local.service';
 })
 export class TicketsComponent implements OnInit {
 
-public numTicketActivo:string;
-
+public numTicketActivo:Ticket= new Ticket();
+public listadoTickets: Array<Object>;
+public dataTickets;
 
  public ticket:Ticket= new Ticket();
 
@@ -29,29 +30,33 @@ public numTicketActivo:string;
   ) { }
 
   ngOnInit(): void {
-    this.ticketService.getTickets(parseInt(this.localService.getJsonValue("id_usuario")))
-    .subscribe( (resp: Ticket) => {
-        
-      this.numTicketActivo= this.ticket.idTicket;
-      this.ticket=resp;
-      console.log("prueba"+ JSON.stringify(this.ticket));
-  
-      });
+    this.obtenerTickets();
      
   }
 
-  detallesCaso()
+  detallesCaso(id_ticket:string)
   {
-    this.ticketService.getTickets(this.usuarioService.id_usuario)
+    this.ticketService.getTicket(id_ticket)
     .subscribe( (resp: Ticket) => {
-      this.ticket=resp;
-      this.numTicketActivo= this.ticket.idTicket;
+      this.numTicketActivo=resp;
+      console.log(JSON.stringify(this.numTicketActivo));
       
-      this.ticket=resp;
-      console.log("prueba"+ JSON.stringify(this.ticket));
-  
+            
       });
     
+  }
+  obtenerTickets()
+  {
+this.ticketService.getTickets(parseInt(this.localService.getJsonValue("id_usuario")))
+    .subscribe( (resp: Ticket) => {
+        
+    
+      this.ticket=resp;
+      Array.of(JSON.stringify(this.ticket));
+      this.dataTickets=Object.values(this.ticket=resp);
+      console.log("prueba"+ JSON.stringify(this.dataTickets));
+  
+      });
   }
 
 

@@ -4,14 +4,16 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-4 carta">
-        <button  style="border: 0px;" (click)="detallesCaso()">
-        <div class="card" *ngFor="let tickets of ticket">
+        
+        <div class="card" *ngFor="let tickets of dataTickets">
+          <button  style="border: 0px;" (click)="detallesCaso(tickets.idTicket)">ver </button>
           <div class="card-header carta_header">Ticket {{tickets.idTicket}}</div>
           <div class="card-body">
             <div class="row">
               <div class="col">
                 <table class="table table-striped" >
-                 
+               
+
                         <tbody>
                             <tr > 
                                 <td>#Ticket</td>
@@ -45,11 +47,11 @@
               
           </div>
         </div>
-      </button>
+     
       </div>
      
       <div class="col-sm-8 carta">
-      <app-detalles-ticket [numTicketActivo]="numTicketActivo" [ticketActivo]="ticket"></app-detalles-ticket>
+      <app-detalles-ticket  [ticket]=numTicketActivo></app-detalles-ticket>
          
       </div>
     </div>
