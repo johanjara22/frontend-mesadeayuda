@@ -6,6 +6,8 @@ import {map} from 'rxjs/operators';
 
 const cabecera={headers: new HttpHeaders({'Content-Type':'application/json'})};
 
+const id_usuario='id_usuario';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +32,11 @@ export class UsuarioService {
           
   }
 
+
+  
+  public setTId(usuario:string):void{
+    localStorage.removeItem(id_usuario);
+    localStorage.setItem(id_usuario,usuario);
+  }
  
 }

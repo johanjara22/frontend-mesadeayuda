@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<section id="mis_tickets">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 carta">
+        <button  style="border: 0px;" (click)="detallesCaso()">
+        <div class="card" *ngFor="let tickets of ticket">
+          <div class="card-header carta_header">Ticket {{tickets.idTicket}}</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <table class="table table-striped" >
+                 
+                        <tbody>
+                            <tr > 
+                                <td>#Ticket</td>
+                                <td>{{tickets.idTicket}}</td>
+                            </tr>
+
+                           
+
+                            <tr>
+                                <td>Asunto</td>
+                                <td>{{tickets.asunto}}</td>
+                                
+                            </tr>
+
+                            <tr>
+                                <td>Fecha registro</td>
+                                <td>{{tickets.fechaCreacion}}</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>Estado</td>
+                                <td>En proceso</td>
+                                
+                            </tr>
+                        </tbody>
+                </table>
+
+                </div>
+
+              </div>
+              
+          </div>
+        </div>
+      </button>
+      </div>
+     
+      <div class="col-sm-8 carta">
+      <app-detalles-ticket [numTicketActivo]="numTicketActivo" [ticketActivo]="ticket"></app-detalles-ticket>
+         
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

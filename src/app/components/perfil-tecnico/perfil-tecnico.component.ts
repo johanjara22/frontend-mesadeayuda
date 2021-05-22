@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input, Output} from '@angular/core';
+;
 
 @Component({
   selector: 'app-perfil-tecnico',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./perfil-tecnico.component.css']
 })
 export class PerfilTecnicoComponent implements OnInit {
+  public opcionmenu:number;
+ 
 
   constructor() { }
 
   ngOnInit(): void {
+   
+    
   }
+
+
 
 }

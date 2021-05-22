@@ -10,10 +10,11 @@ import { FormsModule } from '@angular/forms'
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PerfilClienteComponent } from './components/perfil-cliente/perfil-cliente.component';
-import { TicketsComponent } from './components/ticket-cliente/tickets.component';
+import { TicketsComponent } from './components/perfil-cliente/ticket-cliente/tickets.component';
 
 import { HomeComponent } from './components/home/home.component';
 
+import { PerfilTecnicoComponent } from './components/perfil-tecnico/perfil-tecnico.component';
 
 
 //social login
@@ -22,8 +23,15 @@ import {
   GoogleLoginProvider,
   FacebookLoginProvider
 } from 'angularx-social-login';
-import { TicketTecnicoComponent } from './components/ticket-tecnico/ticket-tecnico.component';
-import { PerfilTecnicoComponent } from './components/perfil-tecnico/perfil-tecnico.component';
+
+
+//graficos
+import { ChartsModule } from 'ng2-charts';
+import { IntroduccionComponent } from './components/perfil-tecnico/introduccion/introduccion.component';
+import { BarraNavegacionComponent } from './components/perfil-tecnico/barra-navegacion/barra-navegacion.component';
+import { IncidentesComponent } from './components/perfil-tecnico/incidentes/incidentes.component';
+import { RequerimientosComponent } from './components/perfil-tecnico/requerimientos/requerimientos.component';
+import { DetallesTicketComponent } from './components/perfil-cliente/ticket-cliente/detalles-ticket/detalles-ticket.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -31,8 +39,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'clientes/tickets', component: TicketsComponent },
   { path: 'perfilTecnico', component: PerfilTecnicoComponent },
-  { path: 'tickets/especialista', component: TicketTecnicoComponent },
-  { path: 'perfilCliente', component: PerfilClienteComponent }
+    { path: 'perfilCliente', component: PerfilClienteComponent }
 ]
 
 
@@ -44,14 +51,20 @@ const routes: Routes = [
     PerfilClienteComponent,
     TicketsComponent,
     HomeComponent,
-    TicketTecnicoComponent,
+    
     PerfilTecnicoComponent,
+    IntroduccionComponent,
+    BarraNavegacionComponent,
+    IncidentesComponent,
+    RequerimientosComponent,
+    DetallesTicketComponent,
 
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
     SocialLoginModule,
     RouterModule.forRoot(routes)
 

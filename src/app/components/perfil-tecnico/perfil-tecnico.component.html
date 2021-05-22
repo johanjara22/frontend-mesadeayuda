@@ -1,3 +1,23 @@
-<h1 >
-Este es el perfil tecnico
-</h1>
+<section id="perfilTecnico">
+ <div class="container">
+    <div class="row">
+<div class="col-md-3">
+        <app-barra-navegacion (opcionVentanamenu)="opcionmenu=$event"></app-barra-navegacion>
+</div>
+
+<div class="col-md-9" >
+<div >
+
+    <app-introduccion *ngIf="opcionmenu ==1"></app-introduccion>
+
+<app-requerimientos *ngIf="opcionmenu ==2"></app-requerimientos>
+<app-incidentes *ngIf="opcionmenu ==3"></app-incidentes>
+</div>
+
+
+</div>
+    </div>
+</div>
+</section>
+
+

@@ -1,7 +1,7 @@
 export class Ticket {
     idTicket: string;
     asunto: string;
-    fechaCreacion: string;
+    createAT: string;
     placaPC:string;
     
     descripcion: string;

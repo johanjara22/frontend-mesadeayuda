@@ -8,6 +8,8 @@ import { TokenDtoService } from '../../services/token-dto.service';
 import { TokenDto } from '../../models/token-dto';
 import { Usuario } from '../../models/Usuario';
 
+import {LocalService} from '../../services/local.service';
+
 
 @Component({
   selector: 'app-header',
@@ -35,6 +37,7 @@ export class HeaderComponent implements OnInit {
   
     private oauthService: OauthService,
     private tokenService: TokenDtoService,
+    private localStorage: LocalService,
     ) { }
 
   ngOnInit(): void {
@@ -68,6 +71,7 @@ export class HeaderComponent implements OnInit {
         this.oauthService.google(tokenGoogle).subscribe(
           (res) => {
             this.tokenService.setToken(res.value);
+           
             this.isLogged = true;
 
             this.usuarioService.getCliente(this.socialUsers.email).subscribe(
@@ -75,7 +79,8 @@ export class HeaderComponent implements OnInit {
                 this.usuario = resp;
                 this.usuarioService.id_usuario=this.usuario.id;
                 console.log(this.usuario.id);
-                
+                //this.usuarioService.setTId(this.usuario.id.toString());
+                this.localStorage.setJsonValue("id_usuario",this.usuario.id.toLocaleString());
               
                 alert(this.usuario.cargo+this.usuario.email);
                 if (this.usuario.cargo == 'Estudiante') {
