@@ -1,0 +1,134 @@
+<div class="card" style="padding-top: 120px">
+    <div class="card-header carta_header">Actualizando Ticket ...</div>
+    <div class="card-body">
+        <div class="container">
+            <form>
+                <div class="row">
+                    <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header carta_header">
+                            Infomación Básica
+                        </div>
+                        
+                        <div class="card-body">
+                           
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="disabledTextInput" class="form-label">Estado de Ticket</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Estado de Ticket</option>
+                                            <option *ngFor="let estados of dataEstados" value="{{ estados.id }}">
+                                                {{ estados.nombreEstado }}
+                                            </option>
+                                        </select>
+
+                                    </div>
+                                    <div class="col">
+                                        <label for="disabledTextInput" class="form-label">Tipo de Ticket</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Tipo de Ticket</option>
+                                            <option *ngFor="let tipo of dataTipoTicket" value="{{ tipo.id }}">
+                                                {{ tipo.nombreTipoTicket }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    
+                                </div>
+
+                                <fieldset disabled>
+
+                                    <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">Cliente</label>
+                                        <input type="text" id="disabledTextInput" class="form-control"
+                                            placeholder="Johan andres jara">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="disabledTextInput" class="form-label">Asunto</label>
+                                        <input type="text" id="disabledTextInput" class="form-control"
+                                            placeholder="Daño de Cpu">
+                                    </div>
+
+                                
+
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Escribe tu descripcion aqui"
+                                        id="floatingTextarea2" style="height: 150px"></textarea>
+                                    <label for="floatingTextarea2">Descripción Del Ticket</label>
+                                </div>
+                            </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-header carta_header">Tipificación</div>
+                        <div class="card-body">
+                            
+                            <div class="row">
+                                <div class="col">
+                                    <label for="disabledTextInput" class="form-label">Categoria</label>
+                                    <select class="form-select " aria-label=".form-select-lg example">
+                                        <option selected>Estado de Ticket</option>
+                                        <option *ngFor="let estados of dataEstados" value="{{ estados.id }}">
+                                            {{ estados.nombreEstado }}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="disabledTextInput" class="form-label">Servicio</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Estado de Ticket</option>
+                                        <option *ngFor="let estados of dataEstados" value="{{ estados.id }}">
+                                            {{ estados.nombreEstado }}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="col">
+                                    <label for="disabledTextInput" class="form-label">Tiempo Respuesta</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Tipo de Ticket</option>
+                                        <option *ngFor="let tipo of dataTipoTicket" value="{{ tipo.id }}">
+                                            {{ tipo.nombreTipoTicket }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label for="disabledTextInput" class="form-label">Grupo de Especialista</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Estado de Ticket</option>
+                                        <option *ngFor="let estados of dataEstados" value="{{ estados.id }}">
+                                            {{ estados.nombreEstado }}
+                                        </option>
+                                    </select>
+
+                                </div>
+                                <div class="col">
+                                    <label for="disabledTextInput" class="form-label">Especialista</label>
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>Tipo de Ticket</option>
+                                        <option *ngFor="let tipo of dataTipoTicket" value="{{ tipo.id }}">
+                                            {{ tipo.nombreTipoTicket }}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </form>
+        </div>
+    </div>
+</div>

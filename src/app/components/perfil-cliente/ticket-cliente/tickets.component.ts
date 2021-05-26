@@ -14,6 +14,8 @@ import { LocalService } from '../../../services/local.service';
 })
 export class TicketsComponent implements OnInit {
 
+files:FileList;
+
 public numTicketActivo:Ticket= new Ticket();
 public listadoTickets: Array<Object>;
 public dataTickets;

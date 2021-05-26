@@ -25,16 +25,21 @@ export class BarraNavegacionComponent implements OnInit {
       
   }
 
+  sinCategorizar(){
+    this.opcionVentana=2;
+     this.opcionVentanamenu.emit(this.opcionVentana);
+  }
+
   requerimientos()
   {
-      this.opcionVentana=2;
+      this.opcionVentana=3;
       this.opcionVentanamenu.emit(this.opcionVentana);
       
   }
 
   incidentes()
   {
-    this.opcionVentana=3;
+    this.opcionVentana=4;
     this.opcionVentanamenu.emit(this.opcionVentana);
       
   }

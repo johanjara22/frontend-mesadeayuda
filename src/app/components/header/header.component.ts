@@ -81,7 +81,9 @@ export class HeaderComponent implements OnInit {
                 console.log(this.usuario.id);
                 //this.usuarioService.setTId(this.usuario.id.toString());
                 this.localStorage.setJsonValue("id_usuario",this.usuario.id.toLocaleString());
-              
+                this.localStorage.setJsonValue("email",this.socialUsers.email);
+                console.log(this.socialUsers.name);
+                this.usuario.nombre=this.socialUsers.name;
                 alert(this.usuario.cargo+this.usuario.email);
                 if (this.usuario.cargo == 'Estudiante') {
                   this.router.navigate(['/perfilCliente']);

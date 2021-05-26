@@ -3,6 +3,7 @@ export class Usuario {
     email: string;
     contrasena: string;
     cargo:string
+    nombre:string;
 
     usuarios: Usuario[];
 }

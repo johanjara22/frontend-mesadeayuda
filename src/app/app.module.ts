@@ -32,6 +32,9 @@ import { BarraNavegacionComponent } from './components/perfil-tecnico/barra-nave
 import { IncidentesComponent } from './components/perfil-tecnico/incidentes/incidentes.component';
 import { RequerimientosComponent } from './components/perfil-tecnico/requerimientos/requerimientos.component';
 import { DetallesTicketComponent } from './components/perfil-cliente/ticket-cliente/detalles-ticket/detalles-ticket.component';
+import { TicketSinCategorizarComponent } from './components/perfil-tecnico/ticket-sin-categorizar/ticket-sin-categorizar.component';
+import { CrearTicketComponent } from './components/perfil-cliente/crear-ticket/crear-ticket.component';
+import { ActualizarTicketComponent } from './components/perfil-tecnico/actualizar-ticket/actualizar-ticket.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -39,7 +42,9 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'clientes/tickets', component: TicketsComponent },
   { path: 'perfilTecnico', component: PerfilTecnicoComponent },
-    { path: 'perfilCliente', component: PerfilClienteComponent }
+  { path: 'crearTicket', component: CrearTicketComponent },
+  {path:'actualizarTicket', component:ActualizarTicketComponent},
+  { path: 'perfilCliente', component: PerfilClienteComponent }
 ]
 
 
@@ -51,13 +56,16 @@ const routes: Routes = [
     PerfilClienteComponent,
     TicketsComponent,
     HomeComponent,
-    
+    CrearTicketComponent,
     PerfilTecnicoComponent,
     IntroduccionComponent,
     BarraNavegacionComponent,
     IncidentesComponent,
     RequerimientosComponent,
     DetallesTicketComponent,
+    TicketSinCategorizarComponent,
+    ActualizarTicketComponent,
+
 
   ],
   imports: [

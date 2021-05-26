@@ -1,0 +1,23 @@
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#ticket</th>
+        <th>Estado</th>
+        <th>Asunto</th>
+        <th>Cliente</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tickets of dataTickets">
+        <td>{{tickets.idTicket}}</td>
+        <td><button class="btn btn-warning">Categorizar</button></td>
+        <td>{{tickets.asunto}}</td>
+        <td>{{tickets.usuario.nombre}}</td>
+        
+      </tr>
+  
+      
+    </tbody>
+  </table>
+  
