@@ -11,7 +11,7 @@
     <tbody>
       <tr *ngFor="let tickets of dataTickets">
         <td>{{tickets.idTicket}}</td>
-        <td><button class="btn btn-warning">Categorizar</button></td>
+        <td><button class="btn btn-warning"><a routerLink="/actualizarTicket">Categorizar</a></button></td>
         <td>{{tickets.asunto}}</td>
         <td>{{tickets.usuario.nombre}}</td>
         

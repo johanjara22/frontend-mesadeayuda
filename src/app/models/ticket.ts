@@ -16,6 +16,8 @@ export class Ticket {
         {
         "id":Number
     }
+
+   
     
     
 tickets:Ticket[];
