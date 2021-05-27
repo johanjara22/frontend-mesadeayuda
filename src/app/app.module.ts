@@ -35,6 +35,7 @@ import { DetallesTicketComponent } from './components/perfil-cliente/ticket-clie
 import { TicketSinCategorizarComponent } from './components/perfil-tecnico/ticket-sin-categorizar/ticket-sin-categorizar.component';
 import { CrearTicketComponent } from './components/perfil-cliente/crear-ticket/crear-ticket.component';
 import { ActualizarTicketComponent } from './components/perfil-tecnico/actualizar-ticket/actualizar-ticket.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -74,7 +75,8 @@ const routes: Routes = [
     FormsModule,
     ChartsModule,
     SocialLoginModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgbModule
 
   ],
 

@@ -33,7 +33,8 @@ public usuario:Usuario = new Usuario();
 
   public crear():void{
     this.ticket.usuario['id']=this.localService.getJsonValue("id_usuario");
-    console.log("rrespuesta",this.ticket.usuario['id']);
+    this.ticket.estado['idEstado']=1;
+    console.log("rrespuesta",this.ticket.usuario['id']+this.ticket.estado['id']);
     console.log("Enviamos",JSON.stringify(this.ticket));
     
       this.ticketService.crear(this.ticket).subscribe

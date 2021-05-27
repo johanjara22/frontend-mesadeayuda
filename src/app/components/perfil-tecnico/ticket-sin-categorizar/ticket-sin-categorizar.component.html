@@ -1,23 +1,53 @@
 <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>#ticket</th>
-        <th>Estado</th>
-        <th>Asunto</th>
-        <th>Cliente</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let tickets of dataTickets">
-        <td>{{tickets.idTicket}}</td>
-        <td><button class="btn btn-warning"><a routerLink="/actualizarTicket">Categorizar</a></button></td>
-        <td>{{tickets.asunto}}</td>
-        <td>{{tickets.usuario.nombre}}</td>
-        
-      </tr>
-  
-      
-    </tbody>
-  </table>
-  
+  <thead>
+    <tr>
+      <th>#ticket</th>
+      <th>Estado</th>
+      <th>Asunto</th>
+      <th>Cliente</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tickets of dataTickets">
+      <td>{{ tickets.idTicket }}</td>
+      <!--<td><button class="btn btn-warning"><a routerLink="/actualizarTicket">Categorizar</a></button></td>-->
+      <!-- Button trigger modal -->
+      <td>
+        <button type="button" class="btn btn-warning" (click)="openXL(contenido)">
+          Categorizar
+        </button>
+      </td>
+
+
+      <td>{{ tickets.asunto }}</td>
+      <td>{{ tickets.usuario.nombre }}</td>
+
+      <ng-template #contenido let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title">{{ tickets.idTicket }}</h4>
+          <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          {{tickets.descripcion}}
+        </div>
+        <div class="modal-footer">
+         
+            
+           
+              <div>
+                <!--<button type="button" class="btn btn-warning" (click)="modal.close()">Close</button>&nbsp;&nbsp;-->
+                <button type="button" class="btn btn-outline-danger" (click)="generarRequerimiento()">Indicente</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-info" (click)="generarIncidente()">Requerimiento</button>
+              </div>
+            
+
+         
+
+        </div>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>

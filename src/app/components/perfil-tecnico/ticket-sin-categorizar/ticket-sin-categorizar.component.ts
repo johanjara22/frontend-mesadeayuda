@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket';
 import {TicketService} from '../../../services/ticket-service.service';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-ticket-sin-categorizar',
@@ -13,7 +14,8 @@ public dataTickets;
 
 
 
-  constructor(private ticketService:TicketService) { }
+  constructor(private ticketService:TicketService,
+    public modal:NgbModal) { }
 
   ngOnInit(): void {
     this.obTickSinCategorizar();
@@ -28,4 +30,17 @@ public dataTickets;
   });
 
 }
+
+openXL(contenido){
+this.modal.open(contenido,{size:'xl'});
+}
+
+generarRequerimiento(){
+
+}
+
+generarIncidente(){
+  
+}
+
 }

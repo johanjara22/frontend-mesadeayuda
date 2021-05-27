@@ -4,8 +4,7 @@ export class Ticket {
     createAT: Date ;
     placaPC:string ="";
     estado ={
-            "id":Number,
-            "nombre": String
+            "idEstado":null
     }
     descripcion: string ="";
     ubicacion: string ="";
@@ -14,7 +13,7 @@ export class Ticket {
     idUsario:number;
     usuario =
         {
-        "id":Number
+        "id":null
     }
 
    
