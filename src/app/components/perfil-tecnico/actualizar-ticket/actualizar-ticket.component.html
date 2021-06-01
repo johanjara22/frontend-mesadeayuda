@@ -1,5 +1,5 @@
 <div class="card" style="padding-top: 120px">
-    <div class="card-header carta_header">Actualizando Ticket ...</div>
+    <div class="card-header carta_header">Actualizando Ticket {{this.ticketService.ticket.idTicketCategorizado}}</div>
     <div class="card-body">
         <div class="container">
             <form>
@@ -16,8 +16,8 @@
                                     <div class="col">
                                         <label for="disabledTextInput" class="form-label">Estado de Ticket</label>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>Estado de Ticket</option>
-                                            <option *ngFor="let estados of dataEstados" value="{{ estados.id }}">
+                                            <option selected>{{this.ticket.estado.nombreEstado}}</option>
+                                            <option *ngFor="let estados of dataEstados" value="{{ estados.idTicket }}">
                                                 {{ estados.nombreEstado }}
                                             </option>
                                         </select>
@@ -25,12 +25,17 @@
                                     </div>
                                     <div class="col">
                                         <label for="disabledTextInput" class="form-label">Tipo de Ticket</label>
-                                        <select class="form-select" aria-label="Default select example">
-                                            <option selected>Tipo de Ticket</option>
+                                        <input class="form-control" type="text" placeholder='{{this.ticket.tipoTicket.nombreTipoTicket}}' aria-label="Disabled input example" disabled readonly>
+
+                                          <!--
+                                              <select class="form-select" aria-label="Default select example">
+                                              <option selected>{{ tipo.nombreTipoTicket }}</option>
                                             <option *ngFor="let tipo of dataTipoTicket" value="{{ tipo.id }}">
                                                 {{ tipo.nombreTipoTicket }}
                                             </option>
-                                        </select>
+                                             </select>
+                                          -->  
+                                       
                                     </div>
                                     
                                 </div>
@@ -40,12 +45,12 @@
                                     <div class="mb-3">
                                         <label for="disabledTextInput" class="form-label">Cliente</label>
                                         <input type="text" id="disabledTextInput" class="form-control"
-                                            placeholder="Johan andres jara">
+                                            placeholder={{this.ticket.usuario.nombre}}>
                                     </div>
                                     <div class="mb-3">
                                         <label for="disabledTextInput" class="form-label">Asunto</label>
                                         <input type="text" id="disabledTextInput" class="form-control"
-                                            placeholder="Daño de Cpu">
+                                            placeholder="{{this.ticket.asunto}}">
                                     </div>
 
                                 
@@ -53,7 +58,7 @@
                                 <div class="form-floating">
                                     <textarea class="form-control" placeholder="Escribe tu descripcion aqui"
                                         id="floatingTextarea2" style="height: 150px"></textarea>
-                                    <label for="floatingTextarea2">Descripción Del Ticket</label>
+                                    <label for="floatingTextarea2">{{this.ticket.descripcion}}</label>
                                 </div>
                             </fieldset>
                             </div>

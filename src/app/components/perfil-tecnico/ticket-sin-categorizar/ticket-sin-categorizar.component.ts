@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket';
 import {TicketService} from '../../../services/ticket-service.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { v4 as uuidv4, uuidv1 } from 'uuid';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-ticket-sin-categorizar',
@@ -15,7 +17,8 @@ public dataTickets;
 
 
   constructor(private ticketService:TicketService,
-    public modal:NgbModal) { }
+    public modal:NgbModal,
+    private router:Router) { }
 
   ngOnInit(): void {
     this.obTickSinCategorizar();
@@ -35,12 +38,29 @@ openXL(contenido){
 this.modal.open(contenido,{size:'xl'});
 }
 
-generarRequerimiento(){
 
-}
-
-generarIncidente(){
+public categorizarTicket(numTicket:string,tipoTicket:string,ticket:Ticket):void{
+this.ticketService.categorizarTicket(numTicket,tipoTicket,ticket).subscribe( (resp: Ticket) => {
+  ticket=resp;
+  ticket.idTicketCategorizado=resp.idTicketCategorizado;
+  this.ticketService.ticket.tipoTicket= resp.tipoTicket;
+  this.ticketService.ticket.idTicketCategorizado=resp.idTicketCategorizado;
+  this.ticketService.ticket.idTicket= resp.idTicket;
+  this.ticketService.ticket.tipoTicket.id_tipo=resp.tipoTicket.id_tipo;
+  this.ticketService.ticket.tipoTicket.nombreTipoTicket=resp.tipoTicket.nombreTipoTicket;
   
-}
+  console.log( this.ticketService.ticket.tipoTicket.nombreTipoTicket);
+  
+  this.ticketService.ticket.estado
+  console.log(this.ticketService.ticket.idTicketCategorizado);
+  
 
+   this.router.navigate(['/actualizarTicket']);
+  
+  
+        
+  });
+
+
+}
 }

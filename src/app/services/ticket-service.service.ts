@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 })
 export class TicketService{
 
+  public ticket:Ticket = new Ticket();
+
   private urlEndPonit: string = 'http://localhost:8888/ticket/';
 
   private httpHeader = new HttpHeaders({'Content-Type':'application/json'});
@@ -46,6 +48,9 @@ export class TicketService{
     return this.http.post<Ticket>(`${this.urlEndPonit}crear`,ticket,{headers:this.httpHeader});
   }
 
+  categorizarTicket(numTicket:string,tipoTicket:string,ticket:Ticket):Observable<Ticket>{
+    return this.http.put<Ticket>(`${this.urlEndPonit}categorizar/${numTicket}/${tipoTicket}`,ticket,{headers:this.httpHeader});
+  }
 
  
 }

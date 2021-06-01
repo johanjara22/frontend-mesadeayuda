@@ -1,5 +1,5 @@
 export class TipoTicket{
-id_tipo:number;
+idTipo:number;
 nombreTipoTicket:string;
 
 
