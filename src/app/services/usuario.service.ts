@@ -32,6 +32,10 @@ export class UsuarioService {
           
   }
 
+  getEspecialistas(){
+    return this.http.get(`${this.urlEndPonit}especialistas/`,{headers:this.httpHeader});
+  }
+
 
   
   public setTId(usuario:string):void{

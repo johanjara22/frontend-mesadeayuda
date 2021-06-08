@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Ticket } from 'src/app/models/ticket';
 import { Estado } from 'src/app/models/Estado';
+import { Usuario } from 'src/app/models/Usuario';
 import { TipoTicket } from 'src/app/models/TipoTicket';
 
-import {EstadoTicketService} from '../../../services/estado-ticket.service';
+import {EstadoTicketService} from 'src/app/services/estado-ticket.service';
 
 
-import {TipoTicketService} from '../../../services/tipo-ticket.service';
+import {TipoTicketService} from 'src/app/services/tipo-ticket.service';
 
 
 import { TicketService } from 'src/app/services/ticket-service.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 
 @Component({
@@ -21,13 +23,16 @@ export class ActualizarTicketComponent implements OnInit {
 
   constructor(private estadoTicketService:EstadoTicketService,
     private tipoTicketService:TipoTicketService,
-    public ticketService: TicketService) { }
+    public ticketService: TicketService,
+    public usuarioService: UsuarioService ) { }
   public dataEstados;
   public dataTipoTicket;
+  public dataEspecialistas;
    public dataDetallesTicket;
 
  public ticket:Ticket= new Ticket();
  public estado:Estado= new Estado();
+ public usuario:Usuario= new Usuario();
  public tipoTicket:TipoTicket= new TipoTicket();
 
 
@@ -36,6 +41,7 @@ export class ActualizarTicketComponent implements OnInit {
     this.obtenerEstados();
     this.obtenerTiposTickets();
    this.obtenerDetallesTicket();
+   this.obtenerEspecialsitas();
 
   
     
@@ -52,6 +58,13 @@ export class ActualizarTicketComponent implements OnInit {
       
             
       });
+  }
+
+  obtenerEspecialsitas(){
+    this.usuarioService.getEspecialistas().subscribe((resp:Usuario) =>{
+        this.usuario= resp;
+        this.dataEspecialistas=Object.values(this.usuario);
+    });
   }
 
   obtenerTiposTickets(){

@@ -46,7 +46,7 @@ this.ticketService.categorizarTicket(numTicket,tipoTicket,ticket).subscribe( (re
   this.ticketService.ticket.tipoTicket= resp.tipoTicket;
   this.ticketService.ticket.idTicketCategorizado=resp.idTicketCategorizado;
   this.ticketService.ticket.idTicket= resp.idTicket;
-  this.ticketService.ticket.tipoTicket.id_tipo=resp.tipoTicket.id_tipo;
+  this.ticketService.ticket.tipoTicket.idTipo=resp.tipoTicket.idTipo;
   this.ticketService.ticket.tipoTicket.nombreTipoTicket=resp.tipoTicket.nombreTipoTicket;
   
   console.log( this.ticketService.ticket.tipoTicket.nombreTipoTicket);

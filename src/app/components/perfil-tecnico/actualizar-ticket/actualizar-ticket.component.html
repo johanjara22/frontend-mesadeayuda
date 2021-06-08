@@ -10,7 +10,7 @@
                             Infomación Básica
                         </div>
                         
-                        <div class="card-body">
+                        <div class="card-body" style="padding-button:200px">
                            
                                 <div class="row">
                                     <div class="col">
@@ -106,22 +106,12 @@
                             </div>
 
                             <div class="row">
-                                <div class="col">
-                                    <label for="disabledTextInput" class="form-label">Grupo de Especialista</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Estado de Ticket</option>
-                                        <option *ngFor="let estados of dataEstados" value="{{ estados.id }}">
-                                            {{ estados.nombreEstado }}
-                                        </option>
-                                    </select>
-
-                                </div>
-                                <div class="col">
+                                   <div class="col">
                                     <label for="disabledTextInput" class="form-label">Especialista</label>
                                     <select class="form-select" aria-label="Default select example">
-                                        <option selected>Tipo de Ticket</option>
-                                        <option *ngFor="let tipo of dataTipoTicket" value="{{ tipo.id }}">
-                                            {{ tipo.nombreTipoTicket }}
+                                        <option selected>Especialista</option>
+                                        <option *ngFor="let especialista of dataEspecialistas" value="{{ especialista.id }}">
+                                            {{ especialista.nombre }}
                                         </option>
                                     </select>
                                 </div>
