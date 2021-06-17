@@ -34,10 +34,13 @@ public usuario:Usuario = new Usuario();
   public crear():void{
     this.ticket.usuario['id']=this.localService.getJsonValue("id_usuario");
     this.ticket.estado.idEstado=1;
+
     console.log("rrespuesta",this.ticket.usuario['id']+this.ticket.estado['id']);
     console.log("Enviamos",JSON.stringify(this.ticket));
+    console.log("archivo"+this.ticket.archivo);
     
-      this.ticketService.crear(this.ticket).subscribe
+    
+      this.ticketService.crear(this.ticket.archivo,this.ticket).subscribe
         (resp=>
            this.router.navigate(['/perfilCliente'])
         )

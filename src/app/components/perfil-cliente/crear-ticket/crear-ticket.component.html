@@ -2,13 +2,13 @@
   <div class="card-header">Crear Ticket</div>
 
   <div class="card-body">
-    <form (ngSubmit)="crear()">
+    <form (ngSubmit)="crear()" enctype="multipart/form-data">
 
 
       <div class="form-group row">
         <label for="asunto" class="col-form-label col-sm-2">Asunto</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="ticket.asunto" name="idTicket" />
+          <input type="text" class="form-control" [(ngModel)]="ticket.asunto" name="asunto" />
         </div>
       </div>
 
@@ -19,7 +19,7 @@
       <div class="form-group row">
         <label for="descripcion" class="col-form-label col-sm-2">Descripcion</label>
         <div class="col-sm-6">
-          <textarea type="text" class="form-control" [(ngModel)]="ticket.descripcion" name="idTicket" ></textarea>
+          <textarea type="text" class="form-control" [(ngModel)]="ticket.descripcion" name="descripcion" ></textarea>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
       <div class="form-group row">
         <label for="placaPC" class="col-form-label col-sm-2">Placa PC</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="ticket.placaPC" name="idTicket" />
+          <input type="text" class="form-control" [(ngModel)]="ticket.placaPC" name="placaPc" />
         </div>
       </div>
 
@@ -35,10 +35,16 @@
       <div class="form-group row">
         <label for="Ubicacion" class="col-form-label col-sm-2">Ubicacion</label>
         <div class="col-sm-6">
-          <input type="text" class="form-control" [(ngModel)]="ticket.ubicacion" name="idTicket" />
+          <input type="text" class="form-control" [(ngModel)]="ticket.ubicacion" name="ubicacion" />
         </div>
       </div>
 
+      <div class="form-group row">
+        <label for="Ubicacion" class="col-form-label col-sm-2">Archivo Adjunto</label>
+        <div class="col-sm-6">
+          <input type="file" class="form-control" [(ngModel)]="ticket.archivo" name="archivo" />
+        </div>
+      </div>
 
       <!-- <div class="form-group row">
         <label for="idusuaario" class="col-form-label col-sm-2">id_usuario</label>

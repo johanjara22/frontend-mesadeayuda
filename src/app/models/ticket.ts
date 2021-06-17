@@ -13,11 +13,13 @@ export class Ticket {
     tipoTicket: TipoTicket = new TipoTicket();
     descripcion: string = "";
     ubicacion: string = "";
+      archivo: File;
     idUsario: number;
     usuario: Usuario = new Usuario();
     responsable: Usuario = new Usuario();
     categoria:CategoriaTicket= new CategoriaTicket();
     tickets: Ticket[];
+  
 
 
     /*
@@ -25,14 +27,6 @@ export class Ticket {
             "idTipo":null
         }*/
 
-    /*estado ={
-            "idEstado":null
-    }*/
-
-    /* usuario =
-          {
-          "id":null
-      }
-  */
+   
    
 }

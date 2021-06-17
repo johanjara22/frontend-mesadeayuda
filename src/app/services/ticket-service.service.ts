@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Ticket} from '../models/ticket';
-import {HttpHeaders, HttpClient} from '@angular/common/http';
+import {HttpHeaders, HttpClient, HttpRequest, HttpEvent} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 
@@ -14,9 +14,16 @@ export class TicketService{
   private urlEndPonit: string = 'http://localhost:8888/ticket/';
 
   private httpHeader = new HttpHeaders({'Content-Type':'application/json'});
+  
 
   constructor(private http: HttpClient) { }
+  
 
+  vois()
+  {
+  
+  }
+  
   getTickets(id_usuario: number){
    
     return this.http.get(`${this.urlEndPonit}lista/${id_usuario}`,{headers:this.httpHeader});
@@ -39,18 +46,47 @@ export class TicketService{
   }
 
   allIncidentes(){
+    
     return this.http.get(`${this.urlEndPonit}incidentes/`,{headers:this.httpHeader});
 
   }
 
-
+/*
   crear(ticket:Ticket):Observable<Ticket>{ 
-    return this.http.post<Ticket>(`${this.urlEndPonit}crear`,ticket,{headers:this.httpHeader});
-  }
+    
+
+    return this.http.post<Ticket>(`${this.urlEndPonit}crear/}`,ticket, {headers:this.httpHeader});
+  }*/
+
+
+  
+
 
   categorizarTicket(numTicket:string,tipoTicket:string,ticket:Ticket):Observable<Ticket>{
     return this.http.put<Ticket>(`${this.urlEndPonit}categorizar/${numTicket}/${tipoTicket}`,ticket,{headers:this.httpHeader});
   }
 
  
+crear(archivo:File,ticket:Ticket):Observable<HttpEvent<{}>>{
+   
+  this.httpHeader.append('Access-Control-Allow-Headers', 'Content-Type');
+  this.httpHeader.append('Access-Control-Allow-Methods', 'GET');
+  this.httpHeader.append('Access-Control-Allow-Origin', '*');
+  this.httpHeader.append('Access-Control-Allow-Headers', 'accept');
+
+
+  let formData = new FormData();
+  formData.append("archivo",archivo);
+  formData.append("asunto",ticket.asunto);
+  formData.append("descripcion",ticket.descripcion);
+  formData.append("ubicacion",ticket.ubicacion);
+  formData.append("placaPC",ticket.placaPC);
+
+
+  const req= new HttpRequest('POST',`${this.urlEndPonit}crear/}`,formData,{
+    reportProgress:true
+  });
+  return this.http.request(req);
+}
+
 }
