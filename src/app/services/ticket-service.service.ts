@@ -13,7 +13,7 @@ export class TicketService{
 
   private urlEndPonit: string = 'http://localhost:8888/ticket/';
 
-  private httpHeader = new HttpHeaders({'Content-Type':'application/json'});
+  private httpHeader = new HttpHeaders({'Content-Type':undefined});
   
 
   constructor(private http: HttpClient) { }
@@ -55,10 +55,10 @@ export class TicketService{
   crear(ticket:Ticket):Observable<Ticket>{ 
     
 
-    return this.http.post<Ticket>(`${this.urlEndPonit}crear/}`,ticket, {headers:this.httpHeader});
-  }*/
+    return this.http.post<Ticket>(`${this.urlEndPonit}crear/`,ticket, {headers:this.httpHeader});
+  }
 
-
+*/
   
 
 
@@ -66,15 +66,9 @@ export class TicketService{
     return this.http.put<Ticket>(`${this.urlEndPonit}categorizar/${numTicket}/${tipoTicket}`,ticket,{headers:this.httpHeader});
   }
 
- 
-crear(archivo:File,ticket:Ticket):Observable<HttpEvent<{}>>{
-   
-  this.httpHeader.append('Access-Control-Allow-Headers', 'Content-Type');
-  this.httpHeader.append('Access-Control-Allow-Methods', 'GET');
-  this.httpHeader.append('Access-Control-Allow-Origin', '*');
-  this.httpHeader.append('Access-Control-Allow-Headers', 'accept');
 
-
+crear(formData:FormData){
+/*   
   let formData = new FormData();
   formData.append("archivo",archivo);
   formData.append("asunto",ticket.asunto);
@@ -83,10 +77,12 @@ crear(archivo:File,ticket:Ticket):Observable<HttpEvent<{}>>{
   formData.append("placaPC",ticket.placaPC);
 
 
-  const req= new HttpRequest('POST',`${this.urlEndPonit}crear/}`,formData,{
+  const req= new HttpRequest('POST',`${this.urlEndPonit}crear/`,formData,{
     reportProgress:true
   });
   return this.http.request(req);
-}
+}*/
 
+return this.http.post(`${this.urlEndPonit}save/`,formData);
+}
 }

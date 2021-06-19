@@ -11,6 +11,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { PerfilClienteComponent } from './components/perfil-cliente/perfil-cliente.component';
 import { TicketsComponent } from './components/perfil-cliente/ticket-cliente/tickets.component';
+import {TicketService} from'./services/ticket-service.service';
 
 import { HomeComponent } from './components/home/home.component';
 
@@ -96,6 +97,7 @@ const routes: Routes = [
       } as SocialAuthServiceConfig,
     }
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

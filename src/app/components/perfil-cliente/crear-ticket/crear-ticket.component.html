@@ -2,7 +2,7 @@
   <div class="card-header">Crear Ticket</div>
 
   <div class="card-body">
-    <form (ngSubmit)="crear()" enctype="multipart/form-data">
+    <form method="POST"  enctype="multipart/form-data">
 
 
       <div class="form-group row">
@@ -42,7 +42,7 @@
       <div class="form-group row">
         <label for="Ubicacion" class="col-form-label col-sm-2">Archivo Adjunto</label>
         <div class="col-sm-6">
-          <input type="file" class="form-control" [(ngModel)]="ticket.archivo" name="archivo" />
+          <input type="file" class="form-control"  (change)="onFileChange($event)" [(ngModel)]="ticket.archivo" name="archivo" />
         </div>
       </div>
 
@@ -60,7 +60,7 @@
 
       <div class="form-group row">
         <div class="col-sm-6">
-          <button class="btn btn-primary" role="button">Crear Ticket</button>
+          <button class="btn btn-primary" role="button" (click)="onUpload()">Crear Ticket</button>
         </div>
       </div>
 
