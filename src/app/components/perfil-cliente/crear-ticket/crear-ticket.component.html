@@ -1,69 +1,65 @@
-<div class="card" style="padding-top: 200px;">
-  <div class="card-header">Crear Ticket</div>
+<div class="container">
+  <div class="row" style="padding-top: 150px;padding-bottom: 150px;">
+    <div class="col-sm-8">
+<div class="card">
+  <div class="card-header carta_header">Crear Ticket</div>
 
   <div class="card-body">
     <form method="POST"  enctype="multipart/form-data">
 
 
-      <div class="form-group row">
+      <div class="form-group row item_form">
         <label for="asunto" class="col-form-label col-sm-2">Asunto</label>
-        <div class="col-sm-6">
+        <div class="col-sm-8 ">
           <input type="text" class="form-control" [(ngModel)]="ticket.asunto" name="asunto" />
         </div>
       </div>
 
 
-
-
-
-      <div class="form-group row">
+      <div class="form-group row item_form ">
         <label for="descripcion" class="col-form-label col-sm-2">Descripcion</label>
-        <div class="col-sm-6">
+        <div class="col-sm-8 ">
           <textarea type="text" class="form-control" [(ngModel)]="ticket.descripcion" name="descripcion" ></textarea>
         </div>
       </div>
 
 
-      <div class="form-group row">
+      <div class="form-group row item_form">
         <label for="placaPC" class="col-form-label col-sm-2">Placa PC</label>
-        <div class="col-sm-6">
+        <div class="col-sm-8 ">
           <input type="text" class="form-control" [(ngModel)]="ticket.placaPC" name="placaPc" />
         </div>
       </div>
 
 
-      <div class="form-group row">
+      <div class="form-group row item_form">
         <label for="Ubicacion" class="col-form-label col-sm-2">Ubicacion</label>
-        <div class="col-sm-6">
+        <div class="col-sm-8 ">
           <input type="text" class="form-control" [(ngModel)]="ticket.ubicacion" name="ubicacion" />
         </div>
       </div>
 
-      <div class="form-group row">
+      <div class="form-group row item_form">
         <label for="Ubicacion" class="col-form-label col-sm-2">Archivo Adjunto</label>
-        <div class="col-sm-6">
+        <div class="col-sm-8">
           <input type="file" class="form-control"  (change)="onFileChange($event)" [(ngModel)]="ticket.archivo" name="archivo" />
         </div>
       </div>
 
-      <!-- <div class="form-group row">
-        <label for="idusuaario" class="col-form-label col-sm-2">id_usuario</label>
-        <div class="col-sm-6">
-          <input
-            type="text"
-            class="form-control"
-            [(ngModel)]="ticket.usuario['id']"
-            name="idUsuario"
-          />
-        </div>
-      </div>-->
-
-      <div class="form-group row">
-        <div class="col-sm-6">
+    
+      <div class="form-group row item_form">
+        <div class="col-sm-8">
           <button class="btn btn-primary" role="button" (click)="onUpload()">Crear Ticket</button>
         </div>
       </div>
 
     </form>
   </div>
+</div>
+</div>
+
+    <div class="col-sm-4">  
+      <img src="../../../../assets/img/crear.jpg"  class="img-fluid"/>
+    </div>
+</div>
 </div>

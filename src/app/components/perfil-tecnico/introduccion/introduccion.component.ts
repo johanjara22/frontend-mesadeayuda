@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chart.js';
+import * as internal from 'stream';
+import {TicketService} from 'src/app/services/ticket-service.service'
 
 @Component({
   selector: 'app-introduccion',
@@ -9,6 +11,14 @@ import * as pluginDataLabels from 'chart.js';
   styleUrls: ['./introduccion.component.css']
 })
 export class IntroduccionComponent implements OnInit {
+
+  public countRequerimientos:number;
+  public countIncidentes:number;
+  ngOnInit(): void {
+    this.actualizar();
+    console.log("cantidad"+this.countRequerimientos);
+    
+  }
 // Pie
 public pieChartOptions: ChartOptions = {
   responsive: true,
@@ -25,8 +35,8 @@ public pieChartOptions: ChartOptions = {
     },
   }
 };
-public pieChartLabels: Label[] = [['Incidentes'], ['IRequerimientos'], 'otros'];
-public pieChartData: number[] = [300, 500, 100];
+public pieChartLabels: Label[] = [ ['IRequerimientos'],['Incidentes']];
+public pieChartData: number[] = [, 500];
 public pieChartType: ChartType = 'pie';
 public pieChartLegend = true;
 public pieChartPlugins = [pluginDataLabels];
@@ -36,10 +46,8 @@ public pieChartColors = [
   },
 ];
 
-constructor() { }
+constructor(private ticketService:TicketService) { }
 
-ngOnInit(): void {
-}
 
 // events
 public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
@@ -75,4 +83,25 @@ removeSlice(): void {
 changeLegendPosition(): void {
   this.pieChartOptions.legend.position = this.pieChartOptions.legend.position === 'left' ? 'top' : 'left';
 }
+
+actualizar(){
+  var cantidad:number; 
+this.ticketService.cantidadRequerimientos().subscribe((res:number)=>{
+
+cantidad=res;
+this.countRequerimientos=res;
+console.log(this.countRequerimientos);
+this.ticketService.cantidadIncidentes().subscribe((res:number)=>{
+ 
+ this.countIncidentes=res;
+  });
+  this.pieChartData=[this.countRequerimientos,this.countIncidentes];
+
+});
+
+
+
+}
+
+
 }

@@ -16,7 +16,7 @@
                                     <div class="col">
                                         <label for="disabledTextInput" class="form-label">Estado de Ticket</label>
                                         <select class="form-select" aria-label="Default select example">
-                                            <option selected>{{this.ticket.estado.nombreEstado}}</option>
+                                            <option selected>{{this.estado.nombreEstado}}</option>
                                             <option *ngFor="let estados of dataEstados" value="{{ estados.idTicket }}">
                                                 {{ estados.nombreEstado }}
                                             </option>
@@ -50,7 +50,7 @@
                                     <div class="mb-3">
                                         <label for="disabledTextInput" class="form-label">Asunto</label>
                                         <input type="text" id="disabledTextInput" class="form-control"
-                                            placeholder="{{this.ticket.asunto}}">
+                                        placeholder="{{this.ticket.asunto}}">
                                     </div>
 
                                 
@@ -73,9 +73,9 @@
                                 <div class="col">
                                     <label for="disabledTextInput" class="form-label">Categoria</label>
                                     <select class="form-select " aria-label=".form-select-lg example">
-                                        <option selected>Estado de Ticket</option>
-                                        <option *ngFor="let estados of dataEstados" value="{{ estados.id }}">
-                                            {{ estados.nombreEstado }}
+                                        <option selected></option>
+                                        <option *ngFor="let categoria of dataCategorias" value="{{ categoria.id }}">
+                                            {{ categoria.nombreCategoria }}
                                         </option>
                                     </select>
 
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-               
+               <button type="button" class="btn btn-primary" style="margin-top: 15px;" >Guardar</button>
             </form>
         </div>
     </div>

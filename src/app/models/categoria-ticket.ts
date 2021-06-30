@@ -2,6 +2,6 @@ import { TipoTicket } from "./TipoTicket";
 
 export class CategoriaTicket {
     idCategoria:number;
-    nombreCategoria;
+    nombreCategoria:string;
     tipoTicke:TipoTicket = new TipoTicket();
 }

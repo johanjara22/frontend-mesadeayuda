@@ -1,11 +1,16 @@
 
 <div class="container my-5">
+ 
 <div class="row justify-content-sm-center">
   <div class="col">
+   
     <div class="bg-light">
       <div>
           <div>
             <div class="chart">
+              <button type="button" class="btn btn-primary" (click)="actualizar()">
+                <i class="fas fa-sync-alt"></i>
+              </button>
               <canvas baseChart
                 [data]="pieChartData"
                 [labels]="pieChartLabels"
@@ -17,6 +22,8 @@
               </canvas>
             </div>
           </div>
+
+        
         </div>
        
       </div>

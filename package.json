@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~10.0.2",
     "@angular/router": "~10.0.2",
     "@ng-bootstrap/ng-bootstrap": "^8.0.4",
+    "@sweetalert2/ngx-sweetalert2": "^10.0.0",
     "angularx-social-login": "^3.5.7",
     "bootstrap": "^4.5.0",
     "chart.js": "^2.9.4",
@@ -28,6 +29,7 @@
     "ng2-charts": "^2.4.2",
     "rxjs": "~6.5.5",
     "secure-web-storage": "^1.0.2",
+    "sweetalert2": "^11.0.18",
     "tslib": "^2.0.0",
     "uuid": "^8.3.2",
     "zone.js": "~0.10.3"

@@ -3,11 +3,12 @@ import { Ticket } from 'src/app/models/ticket';
 import { Estado } from 'src/app/models/Estado';
 import { Usuario } from 'src/app/models/Usuario';
 import { TipoTicket } from 'src/app/models/TipoTicket';
+import { CategoriaTicket } from 'src/app/models/categoria-ticket';
 
-import {EstadoTicketService} from 'src/app/services/estado-ticket.service';
+import { EstadoTicketService } from 'src/app/services/estado-ticket.service';
 
-
-import {TipoTicketService} from 'src/app/services/tipo-ticket.service';
+import { CategoriaTiketService } from 'src/app/services/categoria-tiket.service';
+import { TipoTicketService } from 'src/app/services/tipo-ticket.service';
 
 
 import { TicketService } from 'src/app/services/ticket-service.service';
@@ -21,76 +22,89 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class ActualizarTicketComponent implements OnInit {
 
-  constructor(private estadoTicketService:EstadoTicketService,
-    private tipoTicketService:TipoTicketService,
-    public ticketService: TicketService,
-    public usuarioService: UsuarioService ) { }
+  constructor(private estadoTicketService: EstadoTicketService,
+  private tipoTicketService: TipoTicketService,
+  public ticketService: TicketService,
+  public usuarioService: UsuarioService,
+  public categoriaService: CategoriaTiketService) { }
+  
   public dataEstados;
   public dataTipoTicket;
   public dataEspecialistas;
-   public dataDetallesTicket;
+  public dataDetallesTicket;
+  public dataCategorias;
 
- public ticket:Ticket= new Ticket();
- public estado:Estado= new Estado();
- public usuario:Usuario= new Usuario();
- public tipoTicket:TipoTicket= new TipoTicket();
+  public ticket: Ticket = new Ticket();
+  public estado: Estado = new Estado();
+  public usuario: Usuario = new Usuario();
+  public tipoTicket: TipoTicket = new TipoTicket();
+  public categoriaTicket: CategoriaTicket = new CategoriaTicket();
 
 
 
   ngOnInit(): void {
     this.obtenerEstados();
     this.obtenerTiposTickets();
-   this.obtenerDetallesTicket();
-   this.obtenerEspecialsitas();
+    this.obtenerDetallesTicket();
+    this.obtenerEspecialsitas();
+    this.obtenerCategorias();
 
-  
-    
-    console.log("id"+JSON.stringify(this.ticketService.ticket.idTicketCategorizado));
-    
-    
+
+
+    console.log("id" + JSON.stringify(this.ticketService.ticket.idTicketCategorizado));
+
+
   }
 
-  obtenerEstados(){
-    this.estadoTicketService.allEstados().subscribe( (resp: Estado) => {
-      this.estado=resp;
-      this.dataEstados=Object.values(this.estado);
-    
-      
-            
-      });
-  }
+  obtenerEstados() {
+    this.estadoTicketService.allEstados().subscribe((resp: Estado) => {
+      this.estado = resp;
+      this.dataEstados = Object.values(this.estado);
 
-  obtenerEspecialsitas(){
-    this.usuarioService.getEspecialistas().subscribe((resp:Usuario) =>{
-        this.usuario= resp;
-        this.dataEspecialistas=Object.values(this.usuario);
+
+
     });
   }
 
-  obtenerTiposTickets(){
-    this.tipoTicketService.allTiposTicket().subscribe( (resp: TipoTicket) => {
-      this.tipoTicket=resp;
-      this.dataTipoTicket=Object.values(this.tipoTicket);
-     
-      
-            
-      });
+  obtenerCategorias() {
+    this.categoriaService.getCategorias().subscribe((resp: CategoriaTicket) => {
+      this.categoriaTicket = resp;
+      this.dataCategorias = Object.values(this.categoriaTicket);
+
+
+
+    });
   }
 
-  obtenerDetallesTicket()
-  {
-    this.ticketService.getTicket(this.ticketService.ticket.idTicket).subscribe((resp: Ticket)=>
-    {
-        this.ticket=resp;
-        this.ticket.estado=resp.estado;
-        this.ticket.usuario= resp.usuario;
-        this.ticket.tipoTicket=resp.tipoTicket;
-        this.dataDetallesTicket=Object.values(this.ticket);
-       
+  obtenerEspecialsitas() {
+    this.usuarioService.getEspecialistas().subscribe((resp: Usuario) => {
+      this.usuario = resp;
+      this.dataEspecialistas = Object.values(this.usuario);
+    });
+  }
+
+  obtenerTiposTickets() {
+    this.tipoTicketService.allTiposTicket().subscribe((resp: TipoTicket) => {
+      this.tipoTicket = resp;
+      this.dataTipoTicket = Object.values(this.tipoTicket);
+
+
+
+    });
+  }
+
+  obtenerDetallesTicket() {
+    this.ticketService.getTicket(this.ticketService.ticket.idTicket).subscribe((resp: Ticket) => {
+      this.ticket = resp;
+      this.ticket.estado = resp.estado;
+      this.ticket.usuario = resp.usuario;
+      this.ticket.tipoTicket = resp.tipoTicket;
+      this.dataDetallesTicket = Object.values(this.ticket);
+
     }
     )
-    
-    
+
+
   }
 
 }

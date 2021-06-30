@@ -29,6 +29,7 @@ public dataTickets;
       this.ticket=resp;
      
       this.dataTickets=Object.values(this.ticket=resp);
+      console.log("ticket"+this.dataTickets);
       
   });
 
@@ -57,9 +58,10 @@ this.ticketService.categorizarTicket(numTicket,tipoTicket,ticket).subscribe( (re
 
    this.router.navigate(['/actualizarTicket']);
   
-  
+  this.modal.dismissAll();
         
   });
+
 
 
 }
