@@ -23,6 +23,18 @@ export class TicketService {
     return this.http.get(`${this.urlEndPonit}requerimientosCantidad`, { headers: this.httpHeader });
   }
 
+  requetimientosByResponsable(responsable:number)
+  {
+    return this.http.get(`${this.urlEndPonit}listadoRequeByResponsable/${responsable}`, { headers: this.httpHeader });
+
+  }
+
+  incidentesByResponsable(responsable:number)
+  {
+    return this.http.get(`${this.urlEndPonit}listadoInciByResponsable/${responsable}`, { headers: this.httpHeader });
+
+  }
+
   cantidadIncidentes(){
     return this.http.get(`${this.urlEndPonit}incidentesCantidad`, { headers: this.httpHeader });
   }
@@ -68,8 +80,11 @@ export class TicketService {
 
   categorizarTicket(numTicket: string, tipoTicket: string, ticket: Ticket): Observable<Ticket> {
     return this.http.put<Ticket>(`${this.urlEndPonit}categorizar/${numTicket}/${tipoTicket}`, ticket, { headers: this.httpHeader });
-  }
+  }d
 
+ editarTicket(numTicket: string,  ticket: Ticket): Observable<Ticket> {
+    return this.http.put<Ticket>(`${this.urlEndPonit}actualizar/${numTicket}`, ticket, { headers: this.httpHeader });
+  }
 
   crear(formData: FormData) {
 

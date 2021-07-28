@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 @Injectable({providedIn: 'root'})
 export class TipoTicketService {
    
+    public tipoTicket:number;
+
   private urlEndPonit: string = 'http://localhost:8888/tipoTK';
 
   private httpHeader = new HttpHeaders({'Content-Type':'application/json'});

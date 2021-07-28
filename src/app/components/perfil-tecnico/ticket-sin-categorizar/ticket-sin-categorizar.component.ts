@@ -4,6 +4,7 @@ import {TicketService} from '../../../services/ticket-service.service';
 import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { v4 as uuidv4, uuidv1 } from 'uuid';
 import {Router} from '@angular/router';
+import { TipoTicketService } from 'src/app/services/tipo-ticket.service';
 
 @Component({
   selector: 'app-ticket-sin-categorizar',
@@ -17,6 +18,7 @@ public dataTickets;
 
 
   constructor(private ticketService:TicketService,
+    private tipoTicketService:TipoTicketService,
     public modal:NgbModal,
     private router:Router) { }
 
@@ -45,6 +47,7 @@ this.ticketService.categorizarTicket(numTicket,tipoTicket,ticket).subscribe( (re
   ticket=resp;
   ticket.idTicketCategorizado=resp.idTicketCategorizado;
   this.ticketService.ticket.tipoTicket= resp.tipoTicket;
+  this.tipoTicketService.tipoTicket=this.ticketService.ticket.tipoTicket.idTipo;
   this.ticketService.ticket.idTicketCategorizado=resp.idTicketCategorizado;
   this.ticketService.ticket.idTicket= resp.idTicket;
   this.ticketService.ticket.tipoTicket.idTipo=resp.tipoTicket.idTipo;

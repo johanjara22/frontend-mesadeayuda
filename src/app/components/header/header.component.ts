@@ -10,6 +10,10 @@ import { Usuario } from '../../models/Usuario';
 
 import {LocalService} from '../../services/local.service';
 
+import Swal from 'sweetalert2';
+
+
+
 
 @Component({
   selector: 'app-header',
@@ -61,6 +65,13 @@ export class HeaderComponent implements OnInit {
   }
 
   signInWithGoogle(): void {
+    Swal.fire({
+      allowOutsideClick:false,
+      icon:'info',
+      title:'Iniciando Sesión',
+      text:'Espere por favor'
+    });
+    Swal.showLoading();
     this.authService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((data) => {
@@ -70,6 +81,11 @@ export class HeaderComponent implements OnInit {
         const tokenGoogle = new TokenDto(this.socialUsers.idToken);
         this.oauthService.google(tokenGoogle).subscribe(
           (res) => {
+            Swal.fire({
+              icon:'success',
+             title:'Usuario: '+ this.socialUsers.name,
+             text:'Inicio Correcto'
+           });
             this.tokenService.setToken(res.value);
            
             this.isLogged = true;
@@ -78,13 +94,13 @@ export class HeaderComponent implements OnInit {
               (resp) => {
                 this.usuario = resp;
                 this.usuarioService.id_usuario=this.usuario.id;
-                console.log(this.usuario.id);
+                
                 //this.usuarioService.setTId(this.usuario.id.toString());
                 this.localStorage.setJsonValue("id_usuario",this.usuario.id.toLocaleString());
                 this.localStorage.setJsonValue("email",this.socialUsers.email);
-                console.log(this.socialUsers.name);
+                
                 this.usuario.nombre=this.socialUsers.name;
-                alert(this.usuario.cargo+this.usuario.email);
+                
                 if (this.usuario.cargo == 'Estudiante') {
                   this.router.navigate(['/perfilCliente']);
                 } else if (this.usuario.cargo == 'Especialista') {
@@ -92,11 +108,21 @@ export class HeaderComponent implements OnInit {
                 }
               },
               (err) => {
+                Swal.fire({
+                  icon:'error',
+                 title:'Datos erroneos',
+                 text:'Error al Iniciar Sesión'
+               });
                 console.log(err);
               }
             );
           },
           (err) => {
+            Swal.fire({
+              icon:'error',
+              title:'Datos erroneos',
+                 text:'Error al Iniciar Sesión'
+           });
             console.log(err);
             this.logOut();
           }

@@ -1,0 +1,21 @@
+<ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" routerLink="/perfilAdmin">Perfil</a>
+    </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link  dropdown-toggle" data-bs-toggle="dropdown"  role="button" aria-expanded="false">Administrar</a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item " (click)="servicios()">Servicios</a></li>
+        <li><a class="dropdown-item" (click)="categorias()">Categorias</a></li>
+        <li><a class="dropdown-item" (click)="especialistas()">Especialsitas</a></li>
+     
+        <li><a class="dropdown-item"  (click)="respuesta()">Tiempos de Respuesta</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link " (click)="reportes()">Reportes</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link "  (click)="data()">Data</a>
+    </li>
+  </ul>

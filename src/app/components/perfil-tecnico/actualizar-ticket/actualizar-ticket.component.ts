@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Ticket } from 'src/app/models/ticket';
 import { Estado } from 'src/app/models/Estado';
 import { Usuario } from 'src/app/models/Usuario';
@@ -9,10 +10,12 @@ import { EstadoTicketService } from 'src/app/services/estado-ticket.service';
 
 import { CategoriaTiketService } from 'src/app/services/categoria-tiket.service';
 import { TipoTicketService } from 'src/app/services/tipo-ticket.service';
-
+import { ServicioTiketService } from 'src/app/services/servicio-tiket.service';
 
 import { TicketService } from 'src/app/services/ticket-service.service';
 import { UsuarioService } from 'src/app/services/usuario.service';
+import { ServicioTicket } from 'src/app/models/servicio-ticket';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -22,23 +25,28 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class ActualizarTicketComponent implements OnInit {
 
-  constructor(private estadoTicketService: EstadoTicketService,
+  constructor( private router:Router,
+  private estadoTicketService: EstadoTicketService,
   private tipoTicketService: TipoTicketService,
   public ticketService: TicketService,
-  public usuarioService: UsuarioService,
-  public categoriaService: CategoriaTiketService) { }
-  
+  private usuarioService: UsuarioService,
+  private categoriaService: CategoriaTiketService,
+  private servicioTicketService:ServicioTiketService
+  ) { }
+
   public dataEstados;
   public dataTipoTicket;
   public dataEspecialistas;
   public dataDetallesTicket;
   public dataCategorias;
+  public dataServicios;
 
   public ticket: Ticket = new Ticket();
   public estado: Estado = new Estado();
   public usuario: Usuario = new Usuario();
   public tipoTicket: TipoTicket = new TipoTicket();
   public categoriaTicket: CategoriaTicket = new CategoriaTicket();
+  public servicioTicket: ServicioTicket = new ServicioTicket();
 
 
 
@@ -48,6 +56,7 @@ export class ActualizarTicketComponent implements OnInit {
     this.obtenerDetallesTicket();
     this.obtenerEspecialsitas();
     this.obtenerCategorias();
+    this.obtenerServicios();
 
 
 
@@ -93,6 +102,18 @@ export class ActualizarTicketComponent implements OnInit {
     });
   }
 
+  obtenerServicios(){
+    this.servicioTicketService.getServiciosByTipoTicket(this.tipoTicketService.tipoTicket).subscribe((resp:ServicioTicket)=>{
+      this.servicioTicket=resp;
+      this.dataServicios= Object.values(this.servicioTicket);
+      console.log("services"+JSON.stringify(this.dataServicios));
+      
+    });
+  }
+
+   
+  
+
   obtenerDetallesTicket() {
     this.ticketService.getTicket(this.ticketService.ticket.idTicket).subscribe((resp: Ticket) => {
       this.ticket = resp;
@@ -104,7 +125,36 @@ export class ActualizarTicketComponent implements OnInit {
     }
     )
 
-
+    
   }
+  
 
+  editarTicket(){
+    Swal.fire({
+      allowOutsideClick:false,
+      icon:'info',
+      title:'Editanto Ticket',
+      text:'Espere por favor'
+    });
+    Swal.showLoading();
+    this.ticketService.editarTicket(this.ticket.idTicket,this.ticket).subscribe((ticket:Ticket)=>{
+      this.ticket= ticket;
+      Swal.fire({
+        icon:'success',
+       title:'Ticket: '+ this.ticket.idTicketCategorizado,
+       text:'Ticket Actualizado'
+     });
+     this.router.navigate(['/perfilTecnico']); 
+      
+    }),err=>{
+      Swal.fire({
+        icon:'error',
+       title:'Ticket: '+ this.ticket.idTicketCategorizado,
+       text:'Error al actualizar'
+     });
+        
+    };
+  }
+ 
+ 
 }

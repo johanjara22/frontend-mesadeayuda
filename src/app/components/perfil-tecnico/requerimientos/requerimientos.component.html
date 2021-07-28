@@ -1,3 +1,4 @@
+<div class="table-responsive">
 <table class="table table-striped">
   <thead>
     <tr>
@@ -5,38 +6,21 @@
       <th>Estado</th>
       <th>Asunto</th>
       <th>Cliente</th>
+      <th>Responsable</th>
       
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>R4554421</td>
-      <td><button class="btn btn-success disabled">Resuelto</button></td>
-      <td>Luis emilio Sanchez Barbosa</td>
-      <td>Luis emilio Sanchez Barbosa</td>
+    <tr *ngFor="let requerimiento of datarequerimientosByEsp">
+      <td>{{requerimiento.idTicketCategorizado}}</td>
+      <td>{{requerimiento.estado.nombreEstado}}</td>
+      <td>{{requerimiento.asunto}}</td>
+      <td>{{requerimiento.usuario.nombre}}</td>
+      <td>{{requerimiento.responsable.nombre}}</td>
+      <td><button type="button" class="btn btn-warning" (click)="editarTicket(requerimiento)">Editar</button></td>
       
     </tr>
 
-    <tr>
-        <td>R4554421</td>
-        <td><button class="btn btn-success disabled">Resuelto</button></td>
-        <td>Luis emilio Sanchez Barbosa</td>
-        <td>Luis emilio Sanchez Barbosa</td>
-       
-    </tr>
-    <tr>
-        <td>R4554421</td>
-        <td><button class="btn btn-success disabled">Resuelto</button></td>
-        <td>Luis emilio Sanchez Barbosa</td>
-        <td>Luis emilio Sanchez Barbosa</td>
-       
-    </tr>
-    <tr>
-        <td>R4554421</td>
-        <td><button class="btn btn-success disabled">Resuelto</button></td>
-        <td>Luis emilio Sanchez Barbosa</td>
-        <td>Luis emilio Sanchez Barbosa</td>
-      
-    </tr>
-  </tbody>
+    </tbody>
 </table>
+</div>

@@ -19,6 +19,7 @@ export class Ticket {
     responsable: Usuario = new Usuario();
     categoria:CategoriaTicket= new CategoriaTicket();
     tickets: Ticket[];
+    
   
 
 

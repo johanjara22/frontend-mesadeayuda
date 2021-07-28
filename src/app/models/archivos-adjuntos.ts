@@ -5,5 +5,5 @@ export class ArchivosAdjuntos {
     idArchivoAdjunto:number;
     nombreArchivo:string;
     ticket:Ticket = new Ticket();
-
+    
 }

@@ -37,6 +37,14 @@ import { TicketSinCategorizarComponent } from './components/perfil-tecnico/ticke
 import { CrearTicketComponent } from './components/perfil-cliente/crear-ticket/crear-ticket.component';
 import { ActualizarTicketComponent } from './components/perfil-tecnico/actualizar-ticket/actualizar-ticket.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PerfilAdminComponent } from './components/perfil-admin/perfil-admin.component';
+import { AdministrarServiciosComponent } from './components/perfil-admin/administrar-servicios/administrar-servicios.component';
+import { AdministrarCategoriasComponent } from './components/perfil-admin/administrar-categorias/administrar-categorias.component';
+import { AdministrarEspecialistasComponent } from './components/perfil-admin/administrar-especialistas/administrar-especialistas.component';
+import { AdministrarTiemposRespuestaComponent } from './components/perfil-admin/administrar-tiempos-respuesta/administrar-tiempos-respuesta.component';
+import { BarraNavegacionAdminComponent } from './components/perfil-admin/barra-navegacion-admin/barra-navegacion-admin.component';
+import { ReportesComponent } from './components/perfil-admin/reportes/reportes.component';
+import { DataComponent } from './components/perfil-admin/data/data.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -46,7 +54,12 @@ const routes: Routes = [
   { path: 'perfilTecnico', component: PerfilTecnicoComponent },
   { path: 'crearTicket', component: CrearTicketComponent },
   {path:'actualizarTicket', component:ActualizarTicketComponent},
-  { path: 'perfilCliente', component: PerfilClienteComponent }
+  { path: 'perfilCliente', component: PerfilClienteComponent },
+  { path: 'perfilAdmin', component: PerfilAdminComponent },
+  { path: 'adminServicios', component: AdministrarServiciosComponent },
+  { path: 'adminCategorias', component: AdministrarCategoriasComponent },
+  { path: 'adminEspecialistas', component: AdministrarEspecialistasComponent },
+  { path: 'adminTiempos', component: AdministrarTiemposRespuestaComponent }
 ]
 
 
@@ -67,6 +80,14 @@ const routes: Routes = [
     DetallesTicketComponent,
     TicketSinCategorizarComponent,
     ActualizarTicketComponent,
+    PerfilAdminComponent,
+    AdministrarServiciosComponent,
+    AdministrarCategoriasComponent,
+    AdministrarEspecialistasComponent,
+    AdministrarTiemposRespuestaComponent,
+    BarraNavegacionAdminComponent,
+    ReportesComponent,
+    DataComponent,
 
 
   ],

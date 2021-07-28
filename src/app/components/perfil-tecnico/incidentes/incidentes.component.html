@@ -1,3 +1,4 @@
+<div class="table-responsive">
 <table class="table table-striped">
     <thead>
       <tr>
@@ -5,39 +6,20 @@
         <th>Estado</th>
         <th>Asunto</th>
         <th>Cliente</th>
+        <th>Responsable</th>
         
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>R4554421</td>
-        <td><button class="btn btn-success disabled">Resuelto</button></td>
-        <td>Luis emilio Sanchez Barbosa</td>
-        <td>Luis emilio Sanchez Barbosa</td>
-        
-      </tr>
-  
-      <tr>
-          <td>R4554421</td>
-          <td><button class="btn btn-success disabled">Resuelto</button></td>
-          <td>Luis emilio Sanchez Barbosa</td>
-          <td>Luis emilio Sanchez Barbosa</td>
-         
-      </tr>
-      <tr>
-          <td>R4554421</td>
-          <td><button class="btn btn-success disabled">Resuelto</button></td>
-          <td>Luis emilio Sanchez Barbosa</td>
-          <td>Luis emilio Sanchez Barbosa</td>
-         
-      </tr>
-      <tr>
-          <td>R4554421</td>
-          <td><button class="btn btn-success disabled">Resuelto</button></td>
-          <td>Luis emilio Sanchez Barbosa</td>
-          <td>Luis emilio Sanchez Barbosa</td>
+      <tr *ngFor="let incidente of dataIncidentesByEsp">
+        <td>{{incidente.idTicketCategorizado}}</td>
+        <td>{{incidente.estado.nombreEstado}}</td>
+        <td>{{incidente.asunto}}</td>
+        <td>{{incidente.usuario.nombre}}</td>
+        <td>{{incidente.responsable.nombre}}</td>
+        <td><button type="button" class="btn btn-warning" (click)="editarTicket(incidente)">Editar</button></td>
         
       </tr>
     </tbody>
   </table>
-  
+</div>

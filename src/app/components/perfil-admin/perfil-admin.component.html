@@ -1,0 +1,19 @@
+<div class="container" style="padding-top: 100px;">
+ <app-barra-navegacion-admin
+ 
+ (opcionVentanamenu)="opcionmenu = $event">
+
+ </app-barra-navegacion-admin>
+</div>
+
+<div class="container my-5">
+    <div>
+        <app-administrar-servicios *ngIf="opcionmenu == 1"></app-administrar-servicios>
+        <app-administrar-categorias *ngIf="opcionmenu == 2"></app-administrar-categorias>
+        <app-administrar-especialistas *ngIf="opcionmenu == 3"></app-administrar-especialistas>
+        <app-administrar-tiempos-respuesta *ngIf="opcionmenu == 4"></app-administrar-tiempos-respuesta>
+        <app-reportes *ngIf="opcionmenu == 5"></app-reportes >
+        <app-data *ngIf="opcionmenu == 6"></app-data>
+                
+      </div>
+</div>
