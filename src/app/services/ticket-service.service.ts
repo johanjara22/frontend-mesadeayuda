@@ -89,5 +89,10 @@ export class TicketService {
   crear(formData: FormData) {
 
     return this.http.post(`${this.urlEndPonit}save/`, formData);
+  } 
+
+  downloadAdjunto(idTicket:string)
+  {
+    return this.http.get(`${this.urlEndPonit}downloadFile/${idTicket}`,{responseType: 'blob'});
   }
 }

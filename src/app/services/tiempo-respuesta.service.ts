@@ -9,19 +9,14 @@ export class TiempoRespuestaService {
   
 
   
-  private urlEndPonit: string = 'http://localhost:8888/estado';
+  private urlEndPonit: string = 'http://localhost:8888/tiempoRespuesta';
 
   private httpHeader = new HttpHeaders({'Content-Type':'application/json'});
 
   constructor(private http: HttpClient) { }
 
-  getEstado(id_ticket: number){
 
-    return this.http.get(`${this.urlEndPonit}/${id_ticket}`,{headers:this.httpHeader});
-
-  }
-
-  allEstados(){
-    return this.http.get(`${this.urlEndPonit}/`,{headers:this.httpHeader});
+  allTiempos(){
+    return this.http.get(`${this.urlEndPonit}/all`,{headers:this.httpHeader});
   }
 }

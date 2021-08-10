@@ -3,8 +3,8 @@ import { TiempoDeRespuesta } from "./tiempo-de-respuesta";
 
 export class ServicioTicket {
     idServicio:number;
-    nombreServicio:string;
+    servicio:string;
     categoriaTicket:CategoriaTicket= new CategoriaTicket();
-    tiempoDeRespuesta:TiempoDeRespuesta= new TiempoDeRespuesta();
+    tiemposDeRespuestaTickets:TiempoDeRespuesta= new TiempoDeRespuesta();
     
 }

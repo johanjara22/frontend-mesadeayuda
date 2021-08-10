@@ -25,4 +25,8 @@ export class ServicioTiketService {
     return this.http.get<ServicioTicket>(`${this.urlEndPonit}/all/${tipoTicket}`,{headers:this.httpHeader});
 
   }
+
+  crearServicio(servicio:ServicioTicket){
+    return this.http.post(`${this.urlEndPonit}/crear`,servicio,{headers:this.httpHeader});
+  }
 }

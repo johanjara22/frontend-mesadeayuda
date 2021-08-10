@@ -46,6 +46,7 @@ onUpload(){
    
 
  formData.append("asunto",this.ticket.asunto);
+
  formData.append("usuario",this.ticket.usuario.id=this.localService.getJsonValue("id_usuario"));
  formData.append("descripcion",this.ticket.descripcion);
  formData.append("placaPC",this.ticket.placaPC);
@@ -64,11 +65,13 @@ Swal.fire({
 Swal.showLoading();
  
  this.ticketService.crear(formData).subscribe((res:Ticket)=>{
+
    console.log("response",res);
-   this.ticket=res;
+   //this.ticket=res;
+   //console.log("response",JSON.stringify(this.ticket));
    Swal.fire({
      icon:'success',
-    title:'Ticket: '+ this.ticket.idTicket,
+    title:'Corecto',
     text:'Ticket Creado'
   });
   this.router.navigate(['/perfilCliente'])

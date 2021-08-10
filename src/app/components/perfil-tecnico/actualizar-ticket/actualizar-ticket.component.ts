@@ -106,7 +106,7 @@ export class ActualizarTicketComponent implements OnInit {
     this.servicioTicketService.getServiciosByTipoTicket(this.tipoTicketService.tipoTicket).subscribe((resp:ServicioTicket)=>{
       this.servicioTicket=resp;
       this.dataServicios= Object.values(this.servicioTicket);
-      console.log("services"+JSON.stringify(this.dataServicios));
+     // console.log("services"+JSON.stringify(this.dataServicios));
       
     });
   }
@@ -116,9 +116,15 @@ export class ActualizarTicketComponent implements OnInit {
 
   obtenerDetallesTicket() {
     this.ticketService.getTicket(this.ticketService.ticket.idTicket).subscribe((resp: Ticket) => {
+
+      console.log("ticket por id"+JSON.stringify(resp));
+      
+
       this.ticket = resp;
       this.ticket.estado = resp.estado;
       this.ticket.usuario = resp.usuario;
+      this.ticket.archivo=resp.archivo;
+     this.ticket.idTicket= resp.idTicket;
       this.ticket.tipoTicket = resp.tipoTicket;
       this.dataDetallesTicket = Object.values(this.ticket);
 
@@ -156,5 +162,34 @@ export class ActualizarTicketComponent implements OnInit {
     };
   }
  
- 
+  downloadFile(ticket:Ticket)
+  {
+   
+    this.ticketService.downloadAdjunto(ticket.idTicket).subscribe(resp=>{
+      console.log("");
+      
+      const fileName = ticket.archivo;
+      //console.log("resp"+resp);`archivo_${Math.random()}.`+resp.type;
+      this.manageDownloadFile(resp,fileName);
+      
+
+   
+    })
+
+  }
+
+  manageDownloadFile(response:any,filename:string):void{
+    
+ const dataType= response.type;
+ const binaryData=[];
+ binaryData.push(response);
+
+ const filePath= window.URL.createObjectURL(new Blob(binaryData,{type:dataType}));
+ const downloadLink= document.createElement('a');
+ downloadLink.href= filePath;
+
+ downloadLink.setAttribute('download',filename);
+ document.body.appendChild(downloadLink);
+ downloadLink.click();
+}
 }

@@ -4,19 +4,65 @@
         <form>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Nombre Servicio</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
+              [(ngModel)]="servicioTicket.servicio"
+              name="servicio">
               
             </div>
             <div class="mb-3">
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Tipo Ticket</option>
-                    <option value="1">Incidente</option>
-                    <option value="2">Requerimiento</option>
-                   
-                  </select>
+              <label
+              for="disabledTextInput"
+              class="form-label">
+              Categoria
+            </label>
+            <select
+              class="form-select"
+              aria-label=".form-select-lg example"
+              [(ngModel)]="servicioTicket.categoriaTicket"
+              name="categoriaTicket"
+              >
+              <option
+                selected
+                >
+                Seleccion Categoria
+              </option>
+              <option
+                *ngFor="let categoria of dataCategorias"
+                [ngValue]="categoria">
+                {{ categoria.nombreCategoria }}
+              </option>
+            </select>
+            </div>
+          
+
+
+
+            <div class="mb-3">
+              <label
+              for="disabledTextInput"
+              class="form-label">
+              Tiempos de Respuesta
+            </label>
+            <select
+              class="form-select"
+              aria-label=".form-select-lg example"
+              [(ngModel)]="servicioTicket.tiemposDeRespuestaTickets"
+              name="tiemposRespuesta"
+              >
+              <option
+                selected
+                >
+                Seleccione Tiempo
+              </option>
+              <option
+                *ngFor="let tiempo of dataTiempos"
+                [ngValue]="tiempo">
+                {{ tiempo.nombre }}
+              </option>
+            </select>
             </div>
             
-            <button type="submit" class="btn btn-primary">Crear Servicio</button>
+            <button type="submit" class="btn btn-primary" (click)="crearServicio(servicioTicket)">Crear Servicio</button>
           </form>
     </div>
     <div class="col-sm-6">
@@ -29,9 +75,9 @@
                 </thead>
 
                 <tbody>
-                    <tr>
-                        <td>nombre</td>
-                        <td><button>Eliminar</button><button>Editar</button></td>
+                    <tr *ngFor="let servicios of dataServicios">
+                        <td>{{servicios.servicio}}</td>
+                        <td><button><i class="fas fa-trash"></i></button>&nbsp;<button><i class="fas fa-edit"></i></button></td>
                     </tr>
                 </tbody>
             </table>
