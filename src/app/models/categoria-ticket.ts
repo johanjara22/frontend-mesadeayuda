@@ -4,6 +4,6 @@ import { TipoTicket } from "./TipoTicket";
 export class CategoriaTicket {
     idCategoria:number;
     nombreCategoria:string;
-    tipoTicke:TipoTicket = new TipoTicket();
-    servicios:ServicioTicket[];
+    tipo_ticket:TipoTicket = new TipoTicket();
+    serviciosTicketses:ServicioTicket[];
 }

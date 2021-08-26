@@ -31,7 +31,7 @@ public dataTickets;
       this.ticket=resp;
      
       this.dataTickets=Object.values(this.ticket=resp);
-      console.log("ticket"+this.dataTickets);
+      console.log("ticket"+JSON.stringify(this.dataTickets));
       
   });
 

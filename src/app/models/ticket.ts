@@ -17,8 +17,9 @@ export class Ticket {
     idUsario: number;
     usuario: Usuario = new Usuario();
     responsable: Usuario = new Usuario();
-    categoria:CategoriaTicket= new CategoriaTicket();
+    categoriaTicket:CategoriaTicket= new CategoriaTicket();
     tickets: Ticket[];
+   
     
     
   

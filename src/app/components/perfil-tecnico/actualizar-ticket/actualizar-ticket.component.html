@@ -120,7 +120,7 @@
                     <select
                       class="form-select"
                       aria-label=".form-select-lg example"
-                      [(ngModel)]="ticket.categoria"
+                      [(ngModel)]="ticket.categoriaTicket"
                       name="categoriaTicket"
                       >
                       <option
@@ -145,11 +145,11 @@
                       class="form-label">
                       Servicio
                     </label>
-                    <!--<select
+                    <select
                       class="form-select"
                       aria-label=".form-select-lg example"
-                      [(ngModel)]="ticket.categoria.servicios"
-                      name="servicios">
+                      [(ngModel)]="ticket.categoriaTicket.serviciosTicketses"
+                      name="serviciosTicketses">
                       <option
                         selected
                         disabled>
@@ -161,7 +161,7 @@
                         {{ servicios.servicio}}
                       </option>
                     </select>
-                -->
+                
                   </div>
                   <div class="col">
                     <label

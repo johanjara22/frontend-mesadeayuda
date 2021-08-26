@@ -1,41 +1,77 @@
 <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-          <form>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre Categoría</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                
-              </div>
-              <div class="mb-3">
-                  <select class="form-select" aria-label="Default select example">
-                      <option selected>Tipo Ticket</option>
-                      <option value="1">Incidente</option>
-                      <option value="2">Requerimiento</option>
-                     
-                    </select>
-              </div>
-              
-              <button type="submit" class="btn btn-primary">Crear Categoría</button>
-            </form>
-      </div>
-      <div class="col-sm-6">
-              <table class="table table-secondary table-striped">
-                  <thead>
-                      <tr>
-                          <th>Nombre</th>
-                          <th>Action</th>
-                      </tr>
-                  </thead>
-  
-                  <tbody>
-                      <tr>
-                          <td>nombre</td>
-                          <td><button>Eliminar</button><button>Editar</button></td>
-                      </tr>
-                  </tbody>
-              </table>
-      </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <form>
+        <div class="mb-3">
+          <label
+            for="exampleInputEmail1"
+            class="form-label">
+            Nombre Categoría
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="categoriaTicket.nombreCategoria"
+            name="nombreCategoria"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+
+        </div>
+        <div class="mb-3">
+            <select
+            class="form-select"
+            aria-label=".form-select-lg example"
+            [(ngModel)]="categoriaTicket.tipo_ticket"
+            name="categoriaTicket"
+            >
+            <option
+              selected
+              >
+              Seleccion Categoria
+            </option>
+            <option
+              *ngFor="let tipoTicket of dataTipos"
+              [ngValue]="tipoTicket">
+              {{ tipoTicket.nombreTipoTicket }}
+            </option>
+          </select>
+        </div>
+
+        <button
+          type="button"
+          (click)="crearCategoria(categoriaTicket)"
+          class="btn btn-primary">
+          Crear Categoría
+        </button>
+      </form>
+    </div>
+    <div class="col-sm-6">
+      <table class="table table-secondary table-striped">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Tipo Ticket</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let categoria of dataCategorias">
+            <td>{{categoria.nombreCategoria}}</td>
+            <td>
+              {{categoria.tipo_ticket.nombreTipoTicket}}
+            </td>
+            <td>
+              <button>
+                <i class="fas fa-trash"></i>
+              </button> 
+              <button>
+                <i class="fas fa-edit"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
+</div>

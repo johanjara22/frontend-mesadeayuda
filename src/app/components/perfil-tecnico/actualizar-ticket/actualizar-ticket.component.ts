@@ -103,7 +103,7 @@ export class ActualizarTicketComponent implements OnInit {
   }
 
   obtenerServicios(){
-    this.servicioTicketService.getServiciosByTipoTicket(this.tipoTicketService.tipoTicket).subscribe((resp:ServicioTicket)=>{
+    this.servicioTicketService.getServiciosByTipoTicket(2).subscribe((resp:ServicioTicket)=>{
       this.servicioTicket=resp;
       this.dataServicios= Object.values(this.servicioTicket);
      // console.log("services"+JSON.stringify(this.dataServicios));
@@ -136,6 +136,8 @@ export class ActualizarTicketComponent implements OnInit {
   
 
   editarTicket(){
+    console.log("enviamos"+JSON.stringify(this.ticket));
+    
     Swal.fire({
       allowOutsideClick:false,
       icon:'info',
@@ -152,14 +154,14 @@ export class ActualizarTicketComponent implements OnInit {
      });
      this.router.navigate(['/perfilTecnico']); 
       
-    }),err=>{
+    },err=>{
       Swal.fire({
         icon:'error',
        title:'Ticket: '+ this.ticket.idTicketCategorizado,
        text:'Error al actualizar'
      });
         
-    };
+    });
   }
  
   downloadFile(ticket:Ticket)
